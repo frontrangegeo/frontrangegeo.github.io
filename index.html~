@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Front Range Geo</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="container">
+        <img src="frontrange.jpg" alt="Front Range" style="width:100%;">
+            <div class="text-block">
+                <p>
+                Front Range Geosciences
+                <div class="med">more coming soon...</div>
+                </p>
+            </div>
+    </div>
+</body>
+
+</html>
