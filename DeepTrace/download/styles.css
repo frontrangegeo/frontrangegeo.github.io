@@ -1,0 +1,176 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    position: relative;
+    text-align: center;
+    font-family: "Open Sans", 'Lato', Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+#wrapper {
+    padding-top: 50px;
+    display: block;
+    padding-right: 0px;
+    max-width: 100%;
+    position: relative;
+}
+p {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.subtitle{
+    padding-top: 3px;
+    margin-top: 3px;
+}
+.bottom {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+#text-wrapper {
+    padding-top: 0px;
+max-width: 30%;
+}
+
+#wrapper img {
+    position: relative;
+    z-index: -1;
+    max-width: 50%;
+}
+.screenshot{
+    max-width: 80%;
+    padding-left: 10%;
+    margin-left: 0px;
+}
+
+#footer {
+    font: 14px "Source Code Pro", Inconsolata;
+    padding-top: 20px;
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #4D4D4D;
+}
+
+.rounded {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.content {
+    float: left;
+    margin-left: 12px;
+    padding-left: 12px;
+    /*border-bottom: 2px solid #9799a7;*/
+    word-wrap: break-word;
+    max-width: 40%
+
+}
+
+tab {
+    padding-left: 2em;
+}
+
+img{
+    margin-left: 5%;
+    @media only screen and (max-device-width: 667px) and (orientation : landscape) {
+    	   margin-left: 10%;
+    }
+    margin-right: 0px;
+    float: left;
+}
+code {
+    background-color: #eee;
+    border: 1px solid;
+    display: inline;
+    padding: 7px;
+}
+.med {
+    font-size: 14px;
+}
+
+.large {
+    
+    font-family: "Open Sans", 'Lato', Helvetica, sans-serif;
+    font-stretch:normal;
+    font-size: 44px;
+}
+.largish {
+   font-size: 36px;
+}
+
+ul {
+    font-size: 14px;
+    text-align: left;
+    margin:6px 0px 12px 0px;
+}
+
+.left {
+    text-align: left; }
+
+.center {
+    text-align: center; }
+
+.just {
+    text-align: justify; }
+
+.light-gray {
+    color: rgba(206, 206, 206, 0.9); }
+.red {
+    color: #d0021b;
+}
+
+.gray {
+    color: rgba(155, 155, 155, 0.9); }
+
+a {
+    text-decoration: none; }
+a.red {
+    color: #D00A07;
+    /*text-transform: uppercase;*/
+}
+a.red:hover {
+    background-color: #ffd2d8; }
+.blue {
+    color: #3e94e0; }
+a.blue:hover {
+    background-color: #c2ddf5; }
+a.green {
+    color: #66ac25; }
+a.green:hover {
+    background-color: #cdeeaf; }
+a.gold {
+    color: #a99f52; }
+a.gold:hover {
+    background-color: #dcd8b8; }
+a.gray {
+    color: rgba(155, 155, 155, 0.9); }
+a.gray:hover {
+    background-color: rgba(232, 232, 232, 0.9); }
+a.purple {
+    font-family: "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+    color: #9932CD;}
+a.purple:hover {
+    background-color: rgba(153, 50, 205, 0.2);
+}
+a.turquoise
+{
+ color: #0CC5DD;   
+}
+a.turquoise:hover
+{
+ background-color: #AFDDDC;   
+}
+a.orange
+{
+ color: #E7BE11;   
+}
+a.orange:hover
+{
+ background-color: #E7D9A4;   
+}
