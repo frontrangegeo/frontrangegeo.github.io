@@ -20,6 +20,18 @@ body {
     overflow: hidden;
 }
 
+#footer {
+    font: 14px "Source Code Pro", Inconsolata;
+    padding-top: 20px;
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #4D4D4D;
+}
+
 .med {
     font-size: 24px;
     text-align: center;
