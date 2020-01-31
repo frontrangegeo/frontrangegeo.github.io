@@ -1,13 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-body {
-    position: relative;
-    text-align: center;
+html, body {
+    margin:0px;
+    padding:0px;
+    background-image:url(seismic.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: "Open Sans", 'Lato', Helvetica, sans-serif;
-    background-color: white;
-    color: black;
 }
+
+#box {
+height:auto   ;
+width:100%   ;
+margin-left:auto;
+margin-right:auto;
+}
+
 #wrapper {
-    padding-top: 5%;
+    padding-top: 2%;
     display: block;
     padding-right: 0px;
     max-width: 100%;
@@ -16,6 +25,8 @@ body {
 p {
     padding-top: 0px;
     margin-top: 0px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
 
 .subtitle{
@@ -44,7 +55,7 @@ max-width: 30%;
 
 #footer {
     font: 14px "Source Code Pro", Inconsolata;
-    padding-top: 20px;
+    padding-top: 12px;
     display: block;
     position: fixed;
     left: 0px;
@@ -64,11 +75,12 @@ max-width: 30%;
 
 .content {
     float: left;
-    margin-left: 12px;
-    padding-left: 12px;
+    margin-left: 2%;
+    padding-left: 10px;
     /*border-bottom: 2px solid #9799a7;*/
+    background-color: rgba(255,255,255,0.95);
     word-wrap: break-word;
-    max-width: 40%
+    max-width: 45%
 
 }
 
@@ -104,7 +116,7 @@ code {
 ul {
     font-size: 14px;
     text-align: left;
-    margin:6px 0px 12px 0px;
+
 }
 
 .left {
@@ -119,8 +131,7 @@ ul {
 .light-gray {
     color: rgba(206, 206, 206, 0.9); }
 .red {
-    color: #d0021b;
-}
+    color: #d0021b;}
 
 .gray {
     color: rgba(155, 155, 155, 0.9); }
@@ -171,3 +182,11 @@ a.orange:hover
 {
  background-color: #E7D9A4;   
 }
+.circle
+{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(44,89,151);
+margin-left: 5%;
+  }

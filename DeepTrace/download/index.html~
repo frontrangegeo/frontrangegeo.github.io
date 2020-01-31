@@ -10,15 +10,15 @@
   </head>
 
   <body>
+
 <p class="large red center">DeepTrace Installation and Usage</p>
 <p class="med left" style="padding-top: 3%; padding-left: 5%;">
-We currently only support installation on Red Hat-based linux distros, particularly CentOS. You can find the packaged program here: <a class="red" href="DeepTrace.rpm">DeepTrace.rpm (3MB)</a>
+Before installation, you must request a free demo license key. Please email us to request a key. <br>We currently only support installation on Red Hat-based linux distros, particularly CentOS. You can find the packaged program here: <a class="red" href="DeepTrace.rpm">DeepTrace.rpm (3MB)</a> (last updated Aug 19)
 </p>
 
 
-<p class="large left blue" style="padding-left: 5%;">Instructions:
-<p class="med left" style="padding-left: 5%;">To install the program, from the command line run:
-</p>
+<p class="large left blue" style="padding-left: 5%;">Instructions:</p>
+<p class="med left" style="padding-left: 5%;">To install the program, from the command line run:</p>
 <p>
 <code>
 > sudo yum localinstall DeepTrace.rpm
@@ -49,23 +49,35 @@ We currently only support installation on Red Hat-based linux distros, particula
 <p class="med left" style="float: left; margin-left:5%; margin-top:3%;"> This example shows what a filled in .segy_csv looks like. You must modify the relevant byte locations and byte lengths to match your data. Malformed data, and incorrect or incomplete header dictionaries will result in undefined behavior in DeepTrace.</p>
 
 <p class="med left" style="float: left;margin-left:5%; margin-top:3%;"> Now that the SEG-Y file has been chosen and the header dictionary created, the SEG-Y file can be parsed. After clicking "OK" the first 100,000 traces in the file will be automatically parsed. You can choose to parse any number of traces, or the entire file. Parsing the file locally collects and stores all the trace header metadata, such as coordinate and channel information. This parsed information is stored in your local .deeptrace project file, and is what is used to load in a previously created DeepTrace project.
-<!-- <p class="med center"style="padding-left:20%;margin-left:20%; margin-top:3%;float:center;"> img of main menu here</p> -->
+<p class="med center"style="margin-left:20%; margin-top:3%;float:center;"> <img src="teapotmainmenu.png" style="max-width: 75%;margin-right:2%;"/></p>
 </p>
 
-<p class="med left" style="float: left;margin-left:5%; margin-top:3%;margin-bottom: 5%;"> After parsing the SEG-Y file, the moveout trend dialog will automatically open. In the moveout trend window, click anywhere on the basemap to create a shot gather sorted by offset. Click directly on the traces where you think the arrival times are at various offsets, and repeat this process for multiple geographic points on the basemap. The green boxes in the basemap show where a moveout trend has been created. The better you make the moveout trend, the better DeepTrace can pick your data. Take some time to make it dense and accurate.
+<p class="large left" style="float: left; margin-left:5%; margin-top:3%;"> 2) Defining a Moveout Trend</p>
+<p class="med left" style="float: left;margin-left:5%;margin-bottom: 1%;"> After parsing the SEG-Y file, the moveout trend dialog will automatically open. In the moveout trend window, click anywhere on the basemap to create a shot gather sorted by offset. Click directly on the traces where you think the arrival times are at various offsets, and repeat this process for multiple geographic points on the basemap. The green boxes in the basemap show where a moveout trend has been created. The better you make the moveout trend, the better DeepTrace can pick your data. Take some time to make it dense and accurate.
 </p>
 
+<p class="med left" style="float: left; margin-left:5%; margin-top:3%;">Click directly on arrival times at various offsets to flatten the data. This should transform it from looking something like this...</p>
+<img src="teapotmoveoutpre.png" style="max-width: 75%;margin-right:10%;"/>
+<p class="med left" style="float: left; margin-left:5%;margin-right:30%; margin-top:3%;">To something like this.</p>
+<img src="teapotmoveoutpost.png" style="max-width: 75%;margin-right:2%;"/>
+<p class="med left" style="float: left; margin-left:5%;margin-right:50%; margin-top:3%;">This moveout trend is used in the "Pick_NN_Moveout" model.</p>
+
+<p class="large left" style="float: left; margin-left:5%; margin-top:3%;"> 3) Picking</p>
+<p class="med left" style="float: left;margin-left:5%;margin-bottom: 5%;"> Finally, navigate to the "Picks" tab in the top right to send shots to the DeepTrace server and view picks. Models which are checked have their picks displayed on the seismic. The color of picks from different models can be modified by clicking on the colored boxes next to the respective model names. Model names followed by "_event" take the eponymous model's picks and snap them to the nearest event chosen beneath the model window. There are two additional options available when picking, "Using Metric" and "Phase Shift". "Using Metric" tells DeepTrace that the offset values are in meters rather than feet, and "Phase Shift" transforms the data so that peaks and troughs are switched.</p>
+</p>
+<img src="teapotpicks.png" style="float: center;max-width: 80%;"/>
+<p class="med left" style="float: left; margin-left:5%; margin-top:3%;margin-bottom: 10%;">Click on the "Send shot to DeepTrace server" button to get picks. Wait until all models have returned their picks before navigating to another area of the survey.</p>
 
 
     <div id="footer">
 	 
       
-    <p id="contact" class="med center">email: <a href="mailto: info@frontrangegeo.com" class="gray">info@frontrangegeo.com</a> &nbsp;| &nbsp;phone: 720-627-5035</p>
+    <p id="contact" class="med center">email: <a href="mailto: info@frontrangegeosciences.com" class="gray">info@frontrangegeosciences.com</a> &nbsp;| &nbsp;phone: 720-627-5035</p>
     
     </div>
       
   </body>
-  
+
   <script>
        
   </script>
