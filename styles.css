@@ -34,7 +34,7 @@ body {
 
 .med {
     font-size: 24px;
-    text-align: center;
+    text-align: right;
     color: #8E8B8E;
 }
 
@@ -50,3 +50,16 @@ a.red {
 }
 a.red:hover {
     background-color: #ffd2d8; }
+a.blue {
+    color: #3e94e0; }
+a.blue:hover {
+    background-color: #c2ddf5; }
+a.gray {
+    color: rgba(155, 155, 155, 0.9); }
+a.gray:hover {
+    background-color: rgba(232, 232, 232, 0.9); }
+a.purple {
+    color: #9932CD;}
+a.purple:hover {
+    background-color: rgba(153, 50, 205, 0.2);
+}
