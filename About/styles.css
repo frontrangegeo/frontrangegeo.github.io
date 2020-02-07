@@ -1,0 +1,99 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+    position: relative;
+}
+html, body {
+    margin:0px; 
+    padding:0px;
+    background-image:url(../FRG.jpg);
+    background-size: 100% 100%;
+    font-family: "Open Sans", 'Lato', Helvetica, sans-serif;
+}
+
+#box {
+height:auto   ;
+width:100%   ;
+margin-left:auto;      
+margin-right:auto;    
+}
+.header {
+height:10%;
+width:100%;      
+margin-right: 20px;                            
+}
+
+.header p{
+font-size: 48px;
+text-align: center;
+margin-right: 10%;
+}
+.column1 {
+height: 1400px ;
+width:75%     ;                              
+margin-left:12.5%    ;
+background-color: rgba(255,255,255,0.7);
+font-size: 16px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+}
+
+.container {
+width: 90%;
+margin: 0px;
+}
+
+.container p{
+	   margin-bottom: 90px;
+}
+.floated{
+{
+    float: left;
+    width: 100%; 
+    opacity: 1;
+    padding-left: 12px;
+}
+/* Bottom right text */
+.text-block {
+    font-size: 48px;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#footer {
+    font: 14px "Source Code Pro", Inconsolata;
+    padding-top: 20px;
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #4D4D4D;
+}
+
+.med {
+    font-size: 24px;
+    text-align: right;
+    color: #8E8B8E;
+}
+
+a {
+    text-decoration: none; }
+a.red {
+    color: #D00A07;
+    /*text-transform: uppercase;*/
+}
+a.red:hover {
+    background-color: #ffd2d8; }
+a.blue {
+    color: #3e94e0; }
+a.blue:hover {
+    background-color: #c2ddf5; }
+a.gray {
+    color: rgba(155, 155, 155, 0.9); }
+a.gray:hover {
+    background-color: rgba(232, 232, 232, 0.9); }
