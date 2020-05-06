@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Moveout – Moveout</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="Resources/github.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="creating-a-moveout-trend">Creating a Moveout Trend</h1>
+<p><a href="index.html">Back to Main Page</a></p>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#defining-a-moveout-trend">Defining a Moveout Trend</a></li>
+<li><a href="#video">Video</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Many users will be familiar with linear moveouts. A linear moveout is a function of a single variable, a user-defined velocity, <span class="math inline">\(v\)</span>. This velocty is used to shift the seismic data by a time, <span class="math inline">\(t\)</span>, according to</p>
+<p><span class="math display">\[ t = \frac{d}{v} \]</span></p>
+<p>for each trace, where <span class="math inline">\(d\)</span> is the distance between shot and receiver.</p>
+<p>Linear moveouts are a coarse approximation since they use a single average velocity for all distances and angles. To better flatten out seismic data, we use a <em>moveout trend</em>, which records user “picks” as a function of both offset (and, optionally, azimuth). We interpolate the user defined shift values to create an arbitrarily varying shift which is a function of both offset and azimuth.</p>
+<h2 id="defining-a-moveout-trend">Defining a Moveout Trend</h2>
+<p>Users access the moveout trend windows from the Merge Manager. From the Merge Manager, navigate to the “Windows” tab at the top, and choose “Open moveout trend display - azimuth version”.</p>
+<p><img src="Resources/Moveout/mergemanager.png" /></p>
+<p>Once inside the moveout trend display, click on the basemap to pull up some seismic data.</p>
+<p><img src="Resources/Moveout/basemap.png" /></p>
+<p>The list on the left shows the lines in that shot. The top-right display shows the seismic data from that line. The bottom-left plot shows seismic data from that shot sorted by offset. The bottom-right plot shows user picks as a funciton of distance and azimuth.</p>
+<p>Click on various lines in the shot-gather, and then click on first breaks in the top-right seismic display (<em>hint: zoom in on first breaks by dragging the time axis in the seismic display</em>). After you click on a first arrival, you’ll see the seismic data shift, showing you how the moveout trend is interpolating your picks to other offsets and azimuths.</p>
+<p><img src="Resources/Moveout/draggingtime.png" /></p>
+<p>The image above shows how to drag on the time axis to zoom in. Click anywhere on the time axis to zoom back out.</p>
+<p>The next two images show the seismic data before and after a user has clicked on a first arrival.</p>
+<p><img src="Resources/Moveout/beforeclicking.png" /></p>
+<p><img src="Resources/moveout/afterclicking.png" /></p>
+<p>Users can make multiple choices on each line if needed at various offsets and azimuths. Users should repeat this process at various locaitons on the basemap. The more user choices, the better the moveout trend will flatten the seismic data.</p>
+<h2 id="video">Video</h2>
+<video width="900" controls>
+<source src="Resources/Moveout/video.mp4" type="video/mp4">
+</video>
+</body>
+</html>

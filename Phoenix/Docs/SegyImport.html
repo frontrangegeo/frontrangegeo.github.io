@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SegyImport – SegyImport</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="Resources/github.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="importing-segy-data">Importing SEGY data</h1>
+<p><a href="index.html">Back To Table of Contents</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Phoenix is designed to handle the largest surveys. It is possible to import thousands pf SEGY files and distribute the imported data over any number of servers. The sophisticated distributed project logic in Phoenix hides the complexity from the user. blah blah blah</p>
+<h2 id="steps">Steps</h2>
+<ol type="1">
+<li><a href="#segy-dict">Define SEGY Dictionary</a></li>
+<li><a href="#launch-job">Launch Import Job</a></li>
+</ol>
+<h2 id="define-segy-dictionary">Define SEGY Dictionary</h2>
+<p>Following the SPS standard (found at seg.org standards web page) shots and stations are uniquely identified by three numbers - LineNumber, PointNumber, and PointIndex.</p>
+<p>The following information must be available if the SEGY trace headers:</p>
+<ul>
+<li>Shot PointNumber (optional - PointIndex and LineNumber)</li>
+<li>Shot Easting, Northing, Elevation (optional - WaterDepth, PointDepth, Uphole)</li>
+<li>Station PointNumber (optional - PointIndex and LineNumber)</li>
+<li>Station Easting, Northing, Elevation (optional - WaterDepth, PointDepth, Uphole)</li>
+<li>Trace</li>
+</ul>
+<p>Navigate to the main Phoenix application and click on the “Open SEGY viewer / editor” button:</p>
+<p><img src="Resources/SegyImport/phoenix.png" /></p>
+<p>Open the SEGY file by clicking “Select SEG-Y file”, then create a new dictionary file by clicking on the “new” icon in the lower pane:</p>
+<p><img src="Resources/SegyImport/dict1.png" /></p>
+<h2 id="launch-import-job">Launch Import Job</h2>
+<p>Open the SEGY import wizard:</p>
+<ol type="1">
+<li>Navigate back to the main Phoenix application window</li>
+<li>Right-click on the top-level “Datasets” icon in the project tree</li>
+<li>Select “New dataset - import SEGY files”</li>
+</ol>
+</body>
+</html>
