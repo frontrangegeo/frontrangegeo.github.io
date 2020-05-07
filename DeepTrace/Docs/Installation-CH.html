@@ -75,7 +75,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="Resources/github.css" />
+  <link rel="stylesheet" href="github.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -118,7 +118,9 @@
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">sudo</span> systemctl enable deeptracemodel.service</span></code></pre></div>
 <p>用户使用以下命令手动启动和停止Deeptrace服务</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> systemctl <span class="dt">{start/stop/restart}</span> deeptrace<span class="dt">{head/model}</span>.service</span></code></pre></div>
-<p><em>注意：大括号“ {option1 / option2}”表示应选择一个选项</em> ## 检查DeepTrace日志 由于DeepTrace是作为系统服务安装的，因此它利用systemd的日志记录使用情况。</p>
+<p><em>注意：大括号“ {option1 / option2}”表示应选择一个选项</em></p>
+<h2 id="检查deeptrace日志">检查DeepTrace日志</h2>
+<p>由于DeepTrace是作为系统服务安装的，因此它利用systemd的日志记录使用情况。</p>
 <p>要查看DeepTrace日志，请访问</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">journalctl</span> -fu deeptracehead</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="ex">journalctl</span> -fu deeptracemodel</span></code></pre></div>
@@ -136,7 +138,9 @@
 <p>Phoenix默认为“ 10.1.10.196:5000”，因为这是FRG内部使用的值。在Phoenix中将此值更改为您本地GPU节点的值。</p>
 <p>确保在防火墙设置中打开端口5000-50XX：</p>
 <p><code>firewall-cmd --zone = public --add-port = 50XX / tcp --permanent</code></p>
-<p>其中50XX表示GPU节点上可用CPU核心的数量，再加上五个。例如。如果GPU机器上有12个CPU线程可用，则端口5000-5017应该打开。 ## 故障排除 使用以下命令监视GPU节点上的GPU利用率</p>
+<p>其中50XX表示GPU节点上可用CPU核心的数量，再加上五个。例如。如果GPU机器上有12个CPU线程可用，则端口5000-5017应该打开。</p>
+<h2 id="故障排除">故障排除</h2>
+<p>使用以下命令监视GPU节点上的GPU利用率</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">watch</span> -n0.1 nvidia-smi</span></code></pre></div>
 <p>如果％利用率未始终达到100％左右，请尝试增加Phoenix分配给DeepTrace任务的线程。</p>
 <p>在Phoenix首次向GPU请求后，DeepTrace会保留所有可用的GPU内存。 如果您不希望使用GPU为DeepTrace模型提供服务，只需不要在Phoenix中选择它。 使用<code>sudo systemctl stop deeptracemodel</code>终止deeptrace模型服务。</p>

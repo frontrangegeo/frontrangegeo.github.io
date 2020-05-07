@@ -75,14 +75,25 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="Resources/github.css" />
+  <link rel="stylesheet" href="github.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <h1 id="deeptrace-installation-guide">DeepTrace Installation Guide</h1>
-<p><a href="index.html">Back to Docs</a> ## Table of Contents - <a href="#overview">Overview</a> - <a href="#prerequisites">Prerequisites</a> - <a href="#installing-deeptrace">Installing DeepTrace</a> - <a href="#understanding-deeptrace-services">Understanding DeepTrace Services</a> - <a href="#checking-deeptrace-logs">Checking DeepTrace Logs</a> - <a href="#connecting-to-phoenix">Connecting to Phoenix</a> - <a href="#troubleshooting">Troubleshooting</a> ## Overview DeepTrace is a collection of deep convolutional neural networks that pick arrival times in seismic data; we refer to each neural network as a “model”. DeepTrace comes pre-installed with a few models, and enables users to train models further with their own picked seimic data.</p>
+<p><a href="index.html">Back to Docs</a></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installing-deeptrace">Installing DeepTrace</a></li>
+<li><a href="#understanding-deeptrace-services">Understanding DeepTrace Services</a></li>
+<li><a href="#connecting-to-phoenix">Connecting to Phoenix</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>DeepTrace is a collection of deep convolutional neural networks that pick arrival times in seismic data; we refer to each neural network as a “model”. DeepTrace comes pre-installed with a few models, and enables users to train models further with their own picked seimic data.</p>
 <p>DeepTrace’s interface to seismic data is through Front Range Geoscience’s Phoenix Refraction Statics software. Phoenix handles importing and serving seismic data to DeepTrace. Phoenix is typically installed on a CPU cluster to run physics simulations, while DeepTrace is installed on GPU compute units. DeepTrace exposes its functionality to Phoenix as a network service.</p>
 <p>This guide will cover the installation, usage, and maintenance of DeepTrace.</p>
 <h2 id="prerequisites">Prerequisites</h2>

@@ -13,7 +13,7 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="Resources/github.css" />
+  <link rel="stylesheet" href="github.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -21,7 +21,16 @@
 <body>
 <h1 id="deeptrace-usage-guide">DeepTrace Usage Guide</h1>
 <p>This guide will help you understand what kinds of DeepTrace models exist, how to use them to produce picks, and how to train new models. This guide should be read after the <a href="Installation.html">Installation Guide</a>.</p>
-<p><a href="index.html">Back to Docs</a> ## Table of Contents - <a href="#understanding-deeptrace-models">Understanding DeepTrace Models</a> - <a href="#moveout-vs-non-moveout">Moveout vs Non-Moveout</a> - <a href="#smooth-vs-sliding">Smooth vs Sliding</a> - <a href="#training">Training</a> (Under Construction)</p>
+<p><a href="index.html">Back to Docs</a></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#understanding-deeptrace-models">Understanding DeepTrace Models</a>
+<ul>
+<li><a href="#moveout-vs-non-moveout">Moveout vs Non-Moveout</a></li>
+<li><a href="#smooth-vs-sliding">Smooth vs Sliding</a></li>
+</ul></li>
+<li><a href="#training">Training</a> (Under Construction)</li>
+</ul>
 <h2 id="understanding-deeptrace-models">Understanding DeepTrace Models</h2>
 <p>DeepTrace’s primary function is to produce first break picks from seismic data. There are broadly four categories of DeepTrace models: <em>smooth</em>, <em>sliding</em>, <em>moveout</em>, and <em>non-moveout</em>:</p>
 <table>
