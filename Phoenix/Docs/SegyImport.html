@@ -29,7 +29,7 @@
 <li><a href="#launch-job">Launch Import Job</a></li>
 </ol>
 <h2 id="define-segy-dictionary">Define SEGY Dictionary</h2>
-<p>Following the SPS standard (found at seg.org standards web page) shots and stations are uniquely identified by three numbers - LineNumber, PointNumber, and PointIndex.</p>
+<p>Shots and stations are uniquely identified by three numbers - LineNumber, PointNumber, and PointIndex. This follows the SPS standard, which can be found at seg.org standards web page.</p>
 <p>The following information must be available if the SEGY trace headers:</p>
 <table>
 <thead>
@@ -139,12 +139,60 @@
 <p><img src="Resources/SegyImport/dict1.png" /></p>
 <p>Add the required and optional header definitions. A sample completed dictionary is shown below.</p>
 <p><img src="Resources/SegyImport/dict2.png" /></p>
+<p>The “Scan header ranges” tab can be very helpful when trying to determine the location of information in the headers:</p>
+<p><img src="Resources/SegyImport/dict3.png" /></p>
+<p>It may be a good idea to view the seismic also. Header information can be displayed above the trace data helping to confirm the correctness of the header dictionary.</p>
+<p><img src="Resources/SegyImport/dict4.png" /></p>
 <h2 id="launch-import-job">Launch Import Job</h2>
-<p>Open the SEGY import wizard:</p>
-<ol type="1">
-<li>Navigate back to the main Phoenix application window</li>
-<li>Right-click on the top-level “Datasets” icon in the project tree</li>
-<li>Select “New dataset - import SEGY files”</li>
-</ol>
+<p>Navigate back to the main Phoenix application window and right-click on the top-level “Datasets” icon in the project tree. Select “New dataset - import SEGY files”</p>
+<figure>
+<img src="Resources/SegyImport/imp1.png" alt="" /><figcaption>Opening the import wizard</figcaption>
+</figure>
+<h3 id="import-wizard-page-1---seg-y-file-selection">Import wizard, page 1 - SEG-Y file selection</h3>
+<p>Select the header dictionary file, and any number of SEGY files. The same header dictionary will be applied to all files</p>
+<p><img src="Resources/SegyImport/imp2.png" /></p>
+<h3 id="import-wizard-page-2---options">Import wizard, page 2 - Options</h3>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dataset name</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bin size</td>
+<td>Used for internal smoothing operations</td>
+</tr>
+<tr class="odd">
+<td>Dataset count per PhoenixData directory</td>
+<td>The data in the SEGY files is divided up into a number of datasets.</td>
+</tr>
+<tr class="even">
+<td>Dataset maximum time</td>
+<td>Imported data will be clipped to this time</td>
+</tr>
+<tr class="odd">
+<td>Dataset sample interval</td>
+<td>Imported data will be converted to this sample interval</td>
+</tr>
+</tbody>
+</table>
+<p>The following shows that we are creating four datasets on two different disks, for a total of eight datasets</p>
+<p><img src="Resources/SegyImport/imp3.png" /></p>
+<h3 id="import-wizard-page-3---sparse-cmp-generation">Import wizard, page 3 - Sparse CMP generation</h3>
+<p>We generally recommend against selecting this option.</p>
+<p><img src="Resources/SegyImport/imp4.png" /></p>
+<h3 id="import-wizard-page-4---optional-merge-creation">Import wizard, page 4 - Optional merge creation</h3>
+<p>You have the option of creating a Merge after the seismic import is finished.</p>
+<p><img src="Resources/SegyImport/imp5.png" /></p>
 </body>
 </html>
