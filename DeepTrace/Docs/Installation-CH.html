@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Installation-CH.md – Installation-CH</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="Resources/github.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="deeptrace安装指南">DeepTrace安装指南</h1>
+<p>DeepTrace是深度卷积神经网络的集合，可以选择地震数据中的到达时间。我们将每个神经网络称为“模型”。 DeepTrace预先安装了一些模型，使用户可以使用自己选择的地震数据进一步训练模型。</p>
+<p>DeepTrace与地震数据的接口是通过Front Range Geoscience的Phoenix折射静力学软件实现的。 Phoenix负责将地震数据导入和提供给DeepTrace。 Phoenix通常安装在CPU群集上以运行物理模拟，而DeepTrace安装在GPU计算单元上。 DeepTrace将其功能作为网络服务提供给Phoenix。</p>
+<p>本指南将介绍DeepTrace的安装，使用和维护。</p>
+<h2 id="先决条件">先决条件</h2>
+<p>由于DeepTrace利用GPU来加速神经网络性能，因此必须首先安装相关的GPU系统库。这些包括：</p>
+<ul>
+<li>适用于您的GPU的Nvidia驱动程序 <a href="https://www.nvidia.com/Download/index.aspx">(下载)</a> <a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-centos-7-linux">(安装)</a></li>
+<li>CUDA 10.0 <a href="https://developer.nvidia.com/cuda-10.0-download-archive">(下载)</a> <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile">(安装)</a></li>
+<li>cuDNN <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.4.38/Production/10.0_20190923/cudnn-10.0-linux-x64-v7.6.4.38.tgz">(下载)</a> <a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux">(安装)</a></li>
+</ul>
+<p>最后，在* .bashrc *文件中修改以下环境变量：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">export</span> <span class="va">PATH=</span>/bin:/usr/local/cuda-10.0/bin:/usr/local/cuda/bin:<span class="va">$PATH</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=</span>/usr/local/cuda-10.0/lib64:/usr/local/cuda/lib64:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
+<h2 id="安装deeptrace">安装DeepTrace</h2>
+<p>DeepTrace捆绑了其其余软件需求以及一些使用户入门的模型。 由于用户可能会训练其他型号，DeepTrace需要一些磁盘空间才能保存新模型。</p>
+<p>请选择所有GPU节点都可以访问的，具有大量可用磁盘的网络目录，以用作共享存储路径。 组：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">export</span> <span class="va">DEEPTRACEPATH=</span>/the/path/you/choose</span></code></pre></div>
+<p>在您当前的外壳中。</p>
+<p>*注意：这是新模型将保存到的路径。 这不是DeepTrace程序安装路径。</p>
+<p>与DeepTrace打包在一起时，您会发现一个安装脚本<code>installdeeptrace.sh</code>-通过键入<code>sh installdeeptrace.sh</code>运行此安装脚本。 该脚本可以完成一些东西：    -首次创建DEEPTRACEPATH目录结构    -修改deeptrace {head / model} .service文件以反映您选择的<code>$ DEEPTRACEPATH</code>    -将<code>deeptrace</code>可执行文件和服务文件安装到各自的位置</p>
+<p>系统将要求您输入root密码-我们需要此密码才能写入/ etc / systemd / system和/ usr / local。 您可以通过验证没有任何恶意 检查shell脚本<code>less installdeeptrace.sh</code>。</p>
+<p><em>注意：默认情况下，我们将Deeptrace服务单元文件安装到 /etc/systemd/system 中</em></p>
+<p>现在，DeepTrace和系统服务单元文件已安装，运行</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
+<p>来访问DeepTrace服务。</p>
+<h2 id="了解deeptrace服务">了解DeepTrace服务</h2>
+<p>DeepTrace通过两个服务向Phoenix公开其功能：一个用于跟踪GPU节点及其已加载模型的head服务，以及一个用于执行工作的模型服务。</p>
+<p>每个站点仅需要一个头服务，而每个单独的GPU节点都需要启动其自己的模型服务。</p>
+<p>注意：每个GPU节点仅需要一项模型服务。 如果单个节点具有多个GPU，则模型服务将自动处理它。</p>
+<p>用户/系统管理员可以检查deeptracehead.service和deeptracemodel.service文件来了解如何实现。 头服务在端口（默认为5000-5002）上侦听Phoenix和模型服务的请求。 需要告知模型服务在哪里可以找到头服务，以及打开哪些端口以侦听Phoenix请求。</p>
+<p>默认假设是所有GPU都存在于单个节点上，并且该节点同时运行head和model服务。 如果将模型服务安装在另一个节点上，则用户应将deeptracemodel.service文件的HEADADDRESS环境变量从localhost更改为运行head服务的IP地址。</p>
+<p>用户可以通过以下方式将Deeptrace服务设置为在启动时启动：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sudo</span> systemctl enable deeptracehead.service</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">sudo</span> systemctl enable deeptracemodel.service</span></code></pre></div>
+<p>用户使用以下命令手动启动和停止Deeptrace服务</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> systemctl <span class="dt">{start/stop/restart}</span> deeptrace<span class="dt">{head/model}</span>.service</span></code></pre></div>
+<p><em>注意：大括号“ {option1 / option2}”表示应选择一个选项</em> ## 检查DeepTrace日志 由于DeepTrace是作为系统服务安装的，因此它利用systemd的日志记录使用情况。</p>
+<p>要查看DeepTrace日志，请访问</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">journalctl</span> -fu deeptracehead</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">journalctl</span> -fu deeptracemodel</span></code></pre></div>
+<h2 id="连接凤凰">连接凤凰</h2>
+<p>启动DeepTrace头和模型服务后，用户使用头服务IP和端口从Phoenix连接到DeepTrace。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">HEADIPADDRESS</span>：HEADPORT</span></code></pre></div>
+<p>DeepTrace头服务在传递的HEADPORT上侦听Phoenix请求（默认值= 5000）。 头服务在HEADPORT + 1上监听DeepTrace模型请求。 要修改此值，请在/etc/systemd/system/deeptracehead.service中更改变量：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a>＃将<span class="ex">5000</span>更改为您想要的任何端口</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5000</span></span></code></pre></div>
+<p>相应地，您将需要更改/etc/systemd/system/deeptracemodel.service：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a>＃更改以下几行以反映新值</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5001</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="va">Environment=</span>HEADADDRESS=<span class="ex">localhost</span> ＃如果头服务在单独的节点上运行，则localhost应该更改为HEADIP</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="va">Environment=</span>MODELSTARTPORT=<span class="ex">5005</span> ＃这是模型处理开始的起始端口</span></code></pre></div>
+<p>Phoenix默认为“ 10.1.10.196:5000”，因为这是FRG内部使用的值。在Phoenix中将此值更改为您本地GPU节点的值。</p>
+<p>确保在防火墙设置中打开端口5000-50XX：</p>
+<p><code>firewall-cmd --zone = public --add-port = 50XX / tcp --permanent</code></p>
+<p>其中50XX表示GPU节点上可用CPU核心的数量，再加上五个。例如。如果GPU机器上有12个CPU线程可用，则端口5000-5017应该打开。 ## 故障排除 使用以下命令监视GPU节点上的GPU利用率</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">watch</span> -n0.1 nvidia-smi</span></code></pre></div>
+<p>如果％利用率未始终达到100％左右，请尝试增加Phoenix分配给DeepTrace任务的线程。</p>
+<p>在Phoenix首次向GPU请求后，DeepTrace会保留所有可用的GPU内存。 如果您不希望使用GPU为DeepTrace模型提供服务，只需不要在Phoenix中选择它。 使用<code>sudo systemctl stop deeptracemodel</code>终止deeptrace模型服务。</p>
+<p>如有任何疑问，请联系<a href="mailto:demoss@frontrangegeosciences.com">demoss@frontrangegeosciences.com</a>，或获得有关安装和运行DeepTrace。</p>
+</body>
+</html>
