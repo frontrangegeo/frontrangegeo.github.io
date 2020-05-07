@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SegyImport – SegyImport</title>
+  <title>SegyImport.md – SegyImport</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -31,17 +31,114 @@
 <h2 id="define-segy-dictionary">Define SEGY Dictionary</h2>
 <p>Following the SPS standard (found at seg.org standards web page) shots and stations are uniquely identified by three numbers - LineNumber, PointNumber, and PointIndex.</p>
 <p>The following information must be available if the SEGY trace headers:</p>
-<ul>
-<li>Shot PointNumber (optional - PointIndex and LineNumber)</li>
-<li>Shot Easting, Northing, Elevation (optional - WaterDepth, PointDepth, Uphole)</li>
-<li>Station PointNumber (optional - PointIndex and LineNumber)</li>
-<li>Station Easting, Northing, Elevation (optional - WaterDepth, PointDepth, Uphole)</li>
-<li>Trace</li>
-</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Column</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shot</td>
+<td>LineNumber</td>
+<td>Optional, strongly recommended for 3D surveys</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>PointNumber</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>PointIndex</td>
+<td>Optional replant code - suggest using FFID for this field</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Easting</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>Northing</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Elevation</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>Depth</td>
+<td>Optional - required for dynamite data</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Uphole</td>
+<td>Optional - required for dynamite data</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>WaterDepth</td>
+<td>Optional - required for marine/OBC data</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>LineNumber</td>
+<td>Optional, strongly recommended for 3D surveys</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>PointNumber</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>PointIndex</td>
+<td>Optional replant code</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>Easting</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>Northing</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>Elevation</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>Depth</td>
+<td>Optional- required for OBC</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>WaterDepth</td>
+<td>Optional - required for marine/OBC data</td>
+</tr>
+<tr class="even">
+<td>Trace</td>
+<td>Pick_User</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<p>Additional user data may be imported into the shot and station databases, for example statics computed with another program, or first break picks</p>
 <p>Navigate to the main Phoenix application and click on the “Open SEGY viewer / editor” button:</p>
 <p><img src="Resources/SegyImport/phoenix.png" /></p>
 <p>Open the SEGY file by clicking “Select SEG-Y file”, then create a new dictionary file by clicking on the “new” icon in the lower pane:</p>
 <p><img src="Resources/SegyImport/dict1.png" /></p>
+<p>Add the required and optional header definitions. A sample completed dictionary is shown below.</p>
+<p><img src="Resources/SegyImport/dict2.png" /></p>
 <h2 id="launch-import-job">Launch Import Job</h2>
 <p>Open the SEGY import wizard:</p>
 <ol type="1">
