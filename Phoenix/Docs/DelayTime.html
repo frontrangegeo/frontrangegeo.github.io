@@ -36,16 +36,16 @@
 </ul></li>
 <li><a href="#restack">Restack</a></li>
 </ul></li>
-<li><a href="#profile">Profile View</a></li>
 <li><a href="#statics">Statics</a>
 <ul>
 <li><a href="#weathering-velocity">Weathering Velocity</a></li>
+<li><a href="#profile">Profile View</a></li>
 <li><a href="#compute-statics">Compute Statics</a></li>
 </ul></li>
 <li><a href="#video">Video</a></li>
 </ul>
 <h2 id="overview">Overview</h2>
-<p>Delay Time models are frequently considered the bread and butter of geophysical near surface modeling. Delay Time modeling is extremely quick and easy in Phoenix, model updates and stacking speeds have ben improved by orders of magnitude over competitive software like Flatirons.</p>
+<p>Delay Time models are frequently considered the bread and butter of geophysical near surface modeling. Delay Time modeling is extremely quick and easy in Phoenix, model updates and stacking speeds have been improved by orders of magnitude over competitive software like Flatirons.</p>
 <p>It is easy to define any number of delay time models in Phoenix. This guide will cover creating a Delay Time model, updating it with picks, performing basic QC, and producing statics.</p>
 <h2 id="creating-the-model">Creating the Model</h2>
 <p>From the Merge Manager window, you can find the various model tabs at the bottom left of the screen. Select the “DT” (Delay Time) tab, and click “New”</p>
@@ -67,7 +67,7 @@
 <p>Click at various points on the basemap and repeat this process. When you are satisfied, simply close the window.</p>
 <p>Now we will run a model update. Find the “Analysis” tab at the top left, and select “Standard analysis sequence”</p>
 <p><img src="Resources/DelayTime/findanalysis.png" /></p>
-<p>A parameter dialog will pop up. Set the minimum # valid picks per shot/station (if # picks &lt; this value, interpolation will be used). Select the Pick version, and set the Compression method to Linear compression unless you know what you are doing and want to use antoher compression option.</p>
+<p>A parameter dialog will pop up. Set the minimum # valid picks per shot/station (if # picks &lt; this value, interpolation will be used). Select the Pick version, and set the Compression method to Linear compression unless you know what you are doing and want to use another compression option.</p>
 <p>Delay time updates can be performed on the local machine, or distributed over MPI for large surveys. We recommend local machine for surveys &lt; 500 Million traces, and MPI otherwise.</p>
 <p><img src="Resources/DelayTime/analysissettings.png" /></p>
 <p>You can monitor the update from the Phoenix main window, or from the model window in the history log on the left in the “Map view” tab.</p>
@@ -127,7 +127,7 @@
 <p>If you spot a polarity flip, mouse-over the trace and hit “p”.</p>
 <p>(<em>Note: You can adjust all the hotkeys from the hand tab underneath the Pick QC tab</em>)</p>
 <p><img src="Resources/DelayTime/findpolarityflip.png" /></p>
-<p>After fixing polarity errors, navigate to the “model udpate” tab and select “Update model polarities”:</p>
+<p>After fixing polarity errors, navigate to the “model update” tab and select “Update model polarities”:</p>
 <p><img src="Resources/DelayTime/updatepolarities.png" /></p>
 <h3 id="repick">Repick</h3>
 <p>We can manually repick the stacks using the hotkeys, but there are some options for automating the stack re-picking as well.</p>
@@ -145,19 +145,18 @@
 <p>The stacking will be run again. Once it has completed, click “Reload” and select the new set of stacks:</p>
 <p><img src="Resources/DelayTime/pass2reload.png" /></p>
 <p>Repeat this process until you are satisfied with the quality of your stacks.</p>
-<p>At this point, we can examine the delay time model in more detail.</p>
-<h2 id="profile">Profile</h2>
-<p>We can examine our delay time model in profile slices by navigating to the “Profile” tab.</p>
-<p>Drag out a line across the basemap to select a profile.</p>
-<p>You can plot various model attributes by clicking on the top plots and changing which attributes are displayed:</p>
-<p><img src="Resources/DelayTime/profile.png" /></p>
 <h2 id="statics">Statics</h2>
 <p>Now that we have created our delay time model, updated it, and performed QC with stacks, we are ready to create and export statics.</p>
 <h3 id="weathering-velocity">Weathering Velocity</h3>
 <p>To create a physical model, we must define a weathering velocity. Assign a weathering velocity to your model by clicking on the “Model” tab, and slecting “Shortcut - assign weathering velocity”:</p>
 <p><img src="Resources/DelayTime/assignweathering.png" /></p>
+<h2 id="profile">Profile</h2>
+<p>We can examine our delay time model in profile slices by navigating to the “Profile” tab.</p>
+<p>Drag out a line across the basemap to select a profile.</p>
+<p>You can plot various model attributes by clicking on the top plots and changing which attributes are displayed:</p>
+<p><img src="Resources/DelayTime/profile.png" /></p>
 <h3 id="compute-statics">Compute Statics</h3>
-<p>Now that we have a physical mode, we can compute statics.</p>
+<p>Now that we have a physical model, we can compute statics.</p>
 <p>From the “Statics” tab, set the Final datum, and the Intermediate datum.</p>
 <p>Next, select “Statics” <span class="math inline">\(\rightarrow\)</span> “Compute elevation statics”. Assign a replacement velocity.</p>
 <p><img src="Resources/DelayTime/findcomputestatics.png" /></p>
@@ -165,6 +164,9 @@
 <p>Name your statics, select where to save them, the project, model (choose your current delay time model), and ensure that Statics_Elevation is selected for the Column.</p>
 <p>Check “Tie statics” and hit OK.</p>
 <p><img src="Resources/DelayTime/tiestatics.png" /></p>
+<p>After the statics have been computer, they can be exported.</p>
+<p>Under the “Statics” tab, select “Export statics (all models within project!)”</p>
+<p><img src="Resources/DelayTime/exportallstatics.png" /></p>
 <p>Congratulations, your statics have been exported!</p>
 <h2 id="video">Video</h2>
 <video width="900" controls>
