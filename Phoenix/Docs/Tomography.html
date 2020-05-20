@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Phoenix Guide – Tomography</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="tomographic-modeling">Tomographic Modeling</h1>
+<p><a href="index.html">Back To Table of Contents</a></p>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#creating-the-model">Creating the Model</a></li>
+<li><a href="#running-analysis">Running Analysis</a></li>
+<li><a href="#profile-qc">Profile QC</a></li>
+<li><a href="#pick-qc">Pick QC</a></li>
+<li><a href="#exporting">Exporting</a></li>
+<li><a href="#video">Video</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Tomographic modeling is the most powerful form of near surface modeling in Phoenix, it can capture details that Delay Time misses.</p>
+<p>Phoenix introduces a new tomographic modeling algorithm called AANS (or ANS). AANS is similar to the industry standard VNS approach in which model nodes are hung from and vary with the surface topography, but AANS dynamically adjusts model grid spacing during analysis to minimize traveltime error, producing more physical models.</p>
+<p>It is easy to define any number of delay time models in Phoenix. This guide will cover creating an ANS model, updating it with picks, performing basic QC, and exporting. To create a VNS model, the process is essentially identical, simply use the VNS tab instead of the ANS tab at the beginning.</p>
+<h2 id="creating-the-model">Creating the Model</h2>
+<p>From the Merge Manager window, you can find the various model tabs at the bottom left of the screen. Select the “AANS” (“Auto Adaptive Node Spacing”) tab, and click “New”</p>
+<p><img src="Resources/Tomo/1.png" /></p>
+<p>A dialog will pop up to set the model parameters, such as name and node spacing. Select appropriate parameters and click “OK”</p>
+<p><img src="Resources/Tomo/2.png" /></p>
+<p>The initial model will be generated. Next, select the model and click “Open”.</p>
+<p><img src="Resources/Tomo/3.png" /></p>
+<p>Now you are in the Model Window, from which you can run analysis, and perform QC.</p>
+<h2 id="running-analysis">Running Analysis</h2>
+<p>First, we’ll take our initial model and update it with some User defined picks. Navigate to the upper left “Analysis” tab and choose “Batch job: Launch model update”:</p>
+<p><img src="Resources/Tomo/4.png" /></p>
+<p>The first dialog lets you give your model a name, set the minimum and maximum offset ranges, choose pick decimation (here we use Pick decimation = 2, so everys second pick is used, to get the modeling done more quickly). Finally, choose the number of update iterations to do (default 18), and the set of picks to use, and click “Next”:</p>
+<p><img src="Resources/Tomo/5.png" /></p>
+<p>If you know your picks are unreliable in a certain offset range, you can exclude picks in that range with the next window. We leave this off for now:</p>
+<p><img src="Resources/Tomo/6.png" /></p>
+<p>Because data coverage at boundaries can be poor, you can stabilize the boundaries using this option. We leave this option off for now.</p>
+<p><img src="Resources/Tomo/7.png" /></p>
+<p>In the next window, set your minimum and maximum allowed velocities for the model.</p>
+<p>(<em>Note: Pay careful attention to the units of your model. By default Phoenix works in feet, so if your survey is in meters, divide the defaults by 3, or use your own judgment</em>)</p>
+<p>On this page you can also check or uncheck the “Force velocity to increase with depth” option. For the first model update, we recommend <strong>leaving this option on</strong>. Models can become unphysical if inversions are allowed during the first update. Leave this option on for the first update, and if you suspect it would be useful to model inversions, rerun the updated model later with this option disabled.</p>
+<p><img src="Resources/Tomo/8.png" /></p>
+<p>Depending on how well you trust your picks, and how much you suspect the survey geology varies spatially, you can apply differing amounts of model smoothing. We typically recommend leaving these options on, but you may use your judgment to smooth the models less.</p>
+<p><img src="Resources/Tomo/9.png" /></p>
+<p>If you have additional data to constrain the tomographic inversion with, this page sets the constraining blending function. This is an advanced feature. For now, we will leave it off.</p>
+<p><img src="Resources/Tomo/10.png" /></p>
+<p>On this page we set the depth weighting scheme - that is, how the tomographic update error is applied to the raypath nodes. We typically recommend leaving this option on its first setting.</p>
+<p><img src="Resources/Tomo/11.png" /></p>
+<p>The tomographic inversion can be stabilized by allowing the program to interpolate the velocity field into regions of low fold and poor offset range coverage.</p>
+<p>We typically obtain good results using the default settings. You may wish to reduce the value from 2000 feet to 1200 feet (or 400 meters).</p>
+<p>The value of RayPath_MinOffset can be plotted on the Map tab - it is recommended to do so before selecting this value.</p>
+<p><img src="Resources/Tomo/12.png" /></p>
+<p>Finally, we choose between running the Tomo update on the local machine or distributed over MPI. Set the number of threads to use per machine, and click “Finish”. If running locally, the job will start immediately. If running over MPI, you will need to run the shell script at</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&gt;</span> <span class="ex">/usr/local/phoenix/mpi.sh</span></span></code></pre></div>
+<p><img src="Resources/Tomo/13.png" /></p>
+<h2 id="profile-qc">Profile QC</h2>
+<p>After the model update has completed, navigate back to the Merge Manager window, click the “AANS” tab, and click “Reload”. Select your updated model and click “Open”:</p>
+<p><img src="Resources/Tomo/14.png" /></p>
+<p>Drag out a profile by clicking and dragging on the basemap:</p>
+<p><img src="Resources/Tomo/15.png" /></p>
+<p>Next, navigate to the “Profile” tab at the top of the Model Window. This displays plots regarding the profile you just specified.</p>
+<p>We will leave the first plot showing velocity as a function of depth.</p>
+<p>For now, change the second plot to “Count”. This plot shows the node hit count of the model according to the number of simulated raypaths traveling through it. This plot is excellent for visualizing refractor boundaries (you will notice ANS captures refractor boundary locations much better than the older VNS approach).</p>
+<p>If your model is too deep, you will see that no nodes at greater depths were hit, which is an indication you should make your model more shallow. If you notice that there is a large node hit count at the very bottom of your model, this is an indication your model is “pegging out” at the bottom, and that your survey requires a deeper model.</p>
+<p>(<em>Note: right-click on the color bar and select “black white” to color the graph in greyscale</em>)</p>
+<p><img src="Resources/Tomo/16.png" /></p>
+<h2 id="pick-qc">Pick QC</h2>
+<p>Next, we’ll examine how well the model matches the provided picks. Navigate to the “Pick QC” tab at the top of the Model Window, then click on the basemap at the bottom left to select a shot. Four plots are shown, from top to bottom:</p>
+<ol type="1">
+<li>Pick time as a function of offset. Model picks in blue, User picks in red. Change the red picks to any set you have with the drop down “Display which pick version (red)” menu on the left.</li>
+<li>Pick error (<span class="math inline">\(t_{model} - t_{user}\)</span>) as a function of offset.</li>
+<li>Pick error as a function of azimuth.</li>
+<li>Max depth reach by raypath as a function of offset. If your model is not deep enough to accurately model the geology, you may notice the max depth pegging out at the far top right. This plot can be used to infer refractor offset ranges.</li>
+</ol>
+<p><img src="Resources/Tomo/17.png" /></p>
+<h2 id="exporting">Exporting</h2>
+<p>Exporting the model is accomplished using the “Export” tab at the top of the Model Window. These options should be fairly self-explanatory.</p>
+<p>To export statics, the process is the same as in the <a href="DelayTime.html#compute-statics">DelayTime Guide</a>.</p>
+<h2 id="video">Video</h2>
+<video width="900" controls>
+<source src="Resources/Tomo/video.mp4" type="video/mp4">
+</video>
+</body>
+</html>
