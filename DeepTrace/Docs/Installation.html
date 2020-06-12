@@ -135,7 +135,9 @@
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">sudo</span> systemctl enable deeptracemodel.service</span></code></pre></div>
 <p>Users manually start and stop the deeptrace services with</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">sudo</span> systemctl <span class="dt">{start/stop/restart}</span> deeptrace<span class="dt">{head/model}</span>.service</span></code></pre></div>
-<p><em>Note: curly braces “{option1/option2}” denote that a single option should be chosen</em> ## Checking DeepTrace Logs Because DeepTrace is installed as a system service, it utilizes systemd’s journaling to log usage.</p>
+<p><em>Note: curly braces “{option1/option2}” denote that a single option should be chosen</em></p>
+<h2 id="checking-deeptrace-logs">Checking DeepTrace Logs</h2>
+<p>Because DeepTrace is installed as a system service, it utilizes systemd’s journaling to log usage.</p>
 <p>To check the DeepTrace logs, access</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">journalctl</span> -fu deeptracehead</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="ex">journalctl</span> -fu deeptracemodel</span></code></pre></div>
