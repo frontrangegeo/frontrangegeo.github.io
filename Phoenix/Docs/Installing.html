@@ -98,12 +98,18 @@
 <h2 id="installing-phoenix-1">Installing Phoenix</h2>
 <p>Users should untar the latest Phoenix version by</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&gt;</span> <span class="fu">tar</span> -C /usr/local -zxvf phoenix_version.tar.gz</span></code></pre></div>
+<p>Phoenix uses UDP port 45454 for interprocess communication. Open the port with the following command (CentOS 7 and higher)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">&gt;</span> <span class="fu">sudo</span> firewall-cmd --add-port=45454/udp --permanent --zone=public</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="op">&gt;</span> <span class="fu">sudo</span> firewall-cmd --reload</span></code></pre></div>
+<p>and CentOS 6</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">&gt;</span> <span class="fu">sudo</span> iptables -I INPUT -p udp -m udp --dport 45454 -j ACCEPT</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="op">&gt;</span> <span class="fu">sudo</span> service iptables save</span></code></pre></div>
 <p>After Phoenix has been installed, run it with</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">&gt;</span> <span class="ex">/usr/local/phoenix/PhoenixGUI.sh</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">&gt;</span> <span class="ex">/usr/local/phoenix/PhoenixGUI.sh</span></span></code></pre></div>
 <h2 id="configuring-mpi">Configuring MPI</h2>
 <p>The mpi.sh shell script (located <code>/usr/local/phoenix/mpi.sh</code>) will need to be modified to point to your compute nodes.</p>
 <p>Please refer to the line with ‘mpirun’:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">&gt;</span> <span class="ex">mpirun</span> -np 5 -bind-to none -host master,node1,node3,node2,node4 ./FRG_MPI</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">&gt;</span> <span class="ex">mpirun</span> -np 5 -bind-to none -host master,node1,node3,node2,node4 ./FRG_MPI</span></code></pre></div>
 <p>The number after ‘-np’ is the total number of nodes. It should match the total number of nodes listed after ‘-host’.</p>
 <p>In this example, we use 5 nodes: master, node1, node2, node3, node4. You will need to modify this to use the hostnames of your compute nodes.</p>
 <h2 id="configuring-phoenix">Configuring Phoenix</h2>
