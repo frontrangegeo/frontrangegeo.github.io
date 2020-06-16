@@ -103,26 +103,33 @@
 <li>CUDA 10.0 <a href="https://developer.nvidia.com/cuda-10.0-download-archive">(download)</a> <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile">(install)</a></li>
 <li>cuDNN <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.4.38/Production/10.0_20190923/cudnn-10.0-linux-x64-v7.6.4.38.tgz">(download)</a> <a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux">(install)</a></li>
 </ul>
+<p><em>Note: CentOS 8 installations must append –override when installing CUDA10.0 like so:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&gt;</span> <span class="fu">sudo</span> bash cuda_10.0.130_410.48_linux.run --override</span></code></pre></div>
 <p>Finally, modify the following environment variables in your <em>.bashrc</em> file:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">export</span> <span class="va">PATH=</span>/bin:/usr/local/cuda-10.0/bin:/usr/local/cuda/bin:<span class="va">$PATH</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=</span>/usr/local/cuda-10.0/lib64:/usr/local/cuda/lib64:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">export</span> <span class="va">PATH=</span>/bin:/usr/local/cuda-10.0/bin:/usr/local/cuda/bin:<span class="va">$PATH</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">export</span> <span class="va">LD_LIBRARY_PATH=</span>/usr/local/cuda-10.0/lib64:/usr/local/cuda/lib64:<span class="va">$LD_LIBRARY_PATH</span></span></code></pre></div>
 <h2 id="installing-deeptrace">Installing DeepTrace</h2>
 <p>DeepTrace comes bundled with the remainder of its software requirements, as well as some models to get users started. Since users may train additional models, DeepTrace requires some disk space to save new models to.</p>
 <p>Please decide on a networked directory with plenty of free disk that all GPU nodes can access, to act as the shared storage path. Set:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">export</span> <span class="va">DEEPTRACEPATH=</span>/the/path/you/chose</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">export</span> <span class="va">DEEPTRACEPATH=</span>/the/path/you/chose</span></code></pre></div>
 <p>in your current shell.</p>
 <p><em>Note: this is the path new models will be saved to. This is <strong>not</strong> the path that the DeepTrace <strong>binary</strong> is installed to.</em></p>
-<p>Packaged with DeepTrace you will find a setup script <code>installdeeptrace.sh</code> - run this setup script by typing <code>sh installdeeptrace.sh</code>. This script does a few things: - Creates the <code>DEEPTRACEPATH</code> directory structure for the first time - Modifies the deeptrace{head/model}.service files to reflect your chosen <code>$DEEPTRACEPATH</code> - Installs the <code>deeptrace</code> executable and service files to their respective locations</p>
+<p>Packaged with DeepTrace you will find a setup script <code>installdeeptrace.sh</code> - run this setup script by typing <code>sh installdeeptrace.sh</code>. This script does a few things:</p>
+<ul>
+<li>Creates the <code>DEEPTRACEPATH</code> directory structure for the first time</li>
+<li>Modifies the deeptrace{head/model}.service files to reflect your chosen <code>$DEEPTRACEPATH</code></li>
+<li>Installs the <code>deeptrace</code> executable and service files to their respective locations</li>
+</ul>
 <p>You will be asked for your root password - we need this to write to /etc/systemd/system and /usr/local. You may verify that nothing nefarious is going on by checking the shell script <code>less installdeeptrace.sh</code>.</p>
 <p><em>Note: we install the deeptrace service unit files to /etc/systemd/system by default</em></p>
 <p>Sysadmins may wish to install the software to another directory - they should then modify every instance of <code>/usr/local</code> in the following files to their preferred directory:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">installdeeptrace.sh</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">deeptracehead.service</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">deeptracemodel.service</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">installdeeptrace.sh</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">deeptracehead.service</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">deeptracemodel.service</span></span></code></pre></div>
 <p>The following command will achieve this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sed</span> -i <span class="st">&#39;s|/usr/local|/your/install/path|g&#39;</span> deeptracehead.service deeptracemodel.service installdeeptrace.sh</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sed</span> -i <span class="st">&#39;s|/usr/local|/your/install/path|g&#39;</span> deeptracehead.service deeptracemodel.service installdeeptrace.sh</span></code></pre></div>
 <p>Now that DeepTrace and the system service unit files are installed, run</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
 <p>to get access to the DeepTrace service.</p>
 <h2 id="understanding-deeptrace-services">Understanding DeepTrace Services</h2>
 <p>DeepTrace exposes its functionality to Phoenix via two services, a head service which keeps track of GPU nodes and the models they have loaded, and a model service which performs the work.</p>
@@ -131,34 +138,34 @@
 <p>Users/sysadmins can examine the deeptracehead.service and deeptracemodel.service files to understand how this is achieved. The head service listens on ports (5000-5002 by default) for requests from Phoenix and model services. The model service needs to be told where to find the head service, and which ports to open itself to listen to Phoenix requests.</p>
 <p>The default assumption is that all GPUs exist on a single node, and that node runs both the head and model service. Users should change the <code>deeptracemodel.service</code> file’s <code>HEADADDRESS</code> environment variable from localhost to the IP address running the head service if the model service is installed on another node.</p>
 <p>Users can set the deeptrace services to start on boot by:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">sudo</span> systemctl enable deeptracehead.service</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">sudo</span> systemctl enable deeptracemodel.service</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">sudo</span> systemctl enable deeptracehead.service</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">sudo</span> systemctl enable deeptracemodel.service</span></code></pre></div>
 <p>Users manually start and stop the deeptrace services with</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">sudo</span> systemctl <span class="dt">{start/stop/restart}</span> deeptrace<span class="dt">{head/model}</span>.service</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">sudo</span> systemctl <span class="dt">{start/stop/restart}</span> deeptrace<span class="dt">{head/model}</span>.service</span></code></pre></div>
 <p><em>Note: curly braces “{option1/option2}” denote that a single option should be chosen</em></p>
 <h2 id="checking-deeptrace-logs">Checking DeepTrace Logs</h2>
 <p>Because DeepTrace is installed as a system service, it utilizes systemd’s journaling to log usage.</p>
 <p>To check the DeepTrace logs, access</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">journalctl</span> -fu deeptracehead</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">journalctl</span> -fu deeptracemodel</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">journalctl</span> -fu deeptracehead</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">journalctl</span> -fu deeptracemodel</span></code></pre></div>
 <h2 id="connecting-to-phoenix">Connecting to Phoenix</h2>
 <p>When the DeepTrace head and model services have been started, users connect to DeepTrace from Phoenix using the head services IP and port.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">HEADIPADDRESS</span>:HEADPORT</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">HEADIPADDRESS</span>:HEADPORT</span></code></pre></div>
 <p>The DeepTrace head service listens for Phoenix requests on the <code>HEADPORT</code> passed (default=5000). The head service listens for DeepTrace model requests on <code>HEADPORT+1</code>. To modify this value, change the variable in your /etc/systemd/system/deeptracehead.service:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#Change 5000 to whatever port you wish</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5000</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#Change 5000 to whatever port you wish</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5000</span></span></code></pre></div>
 <p>Correspondingly, you will need to change the /etc/systemd/system/deeptracemodel.service:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#Change the follow lines to reflect new values</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5001</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="va">Environment=</span>HEADADDRESS=<span class="ex">localhost</span> <span class="co">#localhost should change to HEADIP if head service is run on a separate node</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="va">Environment=</span>MODELSTARTPORT=<span class="ex">5005</span> <span class="co">#this is the beginning port the model processes start on</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#Change the follow lines to reflect new values</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="va">Environment=</span>HEADPORT=<span class="ex">5001</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="va">Environment=</span>HEADADDRESS=<span class="ex">localhost</span> <span class="co">#localhost should change to HEADIP if head service is run on a separate node</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="va">Environment=</span>MODELSTARTPORT=<span class="ex">5005</span> <span class="co">#this is the beginning port the model processes start on</span></span></code></pre></div>
 <p>Phoenix defaults to <code>10.1.10.196:5000</code> as this is the value used internally at FRG. Change this value in Phoenix to your local GPU node’s values.</p>
 <p>Ensure ports 5000-50XX are open in firewall settings:</p>
 <p><code>firewall-cmd --zone=public --add-port=50XX/tcp --permanent</code></p>
 <p>where 50XX runs through the number of available CPU cores on the GPU node, plus five. E.g. if there are 12 CPU threads available on the GPU machine, ports 5000-5017 should be opened.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Monitor GPU utilization on the GPU nodes with</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">watch</span> -n0.1 nvidia-smi</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">watch</span> -n0.1 nvidia-smi</span></code></pre></div>
 <p>If the %utilization is not consistently hitting around 100%, try increasing the threads Phoenix is assigning to DeepTrace tasks.</p>
 <p>DeepTrace reserves all available GPU memory after the first request to a GPU from Phoenix. If you do not wish to use a GPU to serve DeepTrace models, simply do not select it in Phoenix. Use <code>sudo systemctl stop deeptracemodel</code> to kill the deeptrace model service.</p>
 <p>Please contact <a href="mailto:demoss@frontrangegeosciences.com">demoss@frontrangegeosciences.com</a> with any questions, or for assistance with installing and running DeepTrace.</p>
