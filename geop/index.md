@@ -103,10 +103,10 @@ While Phoenix's core improvements over competitive software are its increases in
 
 Front Range Geosciences is now offering Phoenix and DeepTrace as **free installations** with a pay-per-use structure where customers only pay for results if they like and use them. The pricing structure is:
 
-| Software Used                 | \$/$km^2$ |
+| Software Used                 | \$/$mi^2$ |
 |---------------------------|----------------|
-| Phoenix                     | X         |
-| DeepTrace                 | Y          |
-| Both | Z          |
+| Phoenix                     | 20         |
+| DeepTrace                 | 20          |
+| Both | 30          | 
 
 ![](resources/stack1.png)
