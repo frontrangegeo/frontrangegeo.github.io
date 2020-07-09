@@ -13,7 +13,7 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="github.css" />
+  <link rel="stylesheet" href="style.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -29,7 +29,7 @@
 <li><a href="#moveout-vs-non-moveout">Moveout vs Non-Moveout</a></li>
 <li><a href="#smooth-vs-sliding">Smooth vs Sliding</a></li>
 </ul></li>
-<li><a href="#training">Training</a> (Under Construction)</li>
+<li><a href="#training">Training</a> (Beta)</li>
 </ul>
 <h2 id="understanding-deeptrace-models">Understanding DeepTrace Models</h2>
 <p>DeepTrace’s primary function is to produce first break picks from seismic data. There are broadly four categories of DeepTrace models: <em>smooth</em>, <em>sliding</em>, <em>moveout</em>, and <em>non-moveout</em>:</p>
@@ -74,8 +74,8 @@
 </figure>
 <p>When deciding between using a smooth and sliding model, first consider how accurately you want the picks to track the events, how much compute/ time you have available, and at what stage of the picking process you are in. We recommend first using a smooth model to get a rough set of picks, using those to create an intiial tomo model, then using that tomo model to create a much more accurate moveout. Using the tomo moveout, finally create picks with a sliding model. This process is detailed in the <a href="/Phoenix/Docs/Resources/PhoenixGuide.pdf">Phoenix Startup Guide</a>.</p>
 <h2 id="training">Training</h2>
-<h3 id="under-constructionunfinished">Under Construction/Unfinished</h3>
-<p>Neural network performance increases with data size and variety. Users can continue to train DeepTrace models on their own datasets to further improve its performance.</p>
+<h3 id="beta-feature">Beta Feature</h3>
+<p>Neural network performance increases with data size and variety. As an experimental feature, users can continue to train DeepTrace models on their own datasets to further improve its performance.</p>
 <p>Users train DeepTrace by accessing the DeepTrace Training window in Phoenix by clicking on the train button from the Phoenix launch window.</p>
 <p>In the training window, select a <em>single</em> GPU, a model, and a variety of datasets to train with.</p>
 </body>
