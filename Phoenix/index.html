@@ -1,45 +1,61 @@
 <!DOCTYPE html>
-<html>
-  
-  <head>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <title>DeepTrace</title>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-  </head>
-
-  <body>
-  <div id="box">
-  <a href="http://frontrangegeosciences.com/">
-  <img href="http://frontrangegeosciences.com/" src="../DeepTrace/FRGLogo.png" alt="FRG Logo" style="float: right; position: relative; max-width: 7%; z-index: 20;"></img>
-  </a>
-  
-    <div id="wrapper">
-    
-    
-      <div class="content">
-    
-    
-	  <p class="large left red bottom">Phoenix</p>
-	    <p class="large left gray bottom">Refraction Statics</p>
-	      <p class="med left">Phoenix is the near surface modeling and refraction statics package for the modern era. Designed to run the largest surveys in hours instead of weeks, Phoenix offers unheard of performance.</p>
-	        <p class="med left">With vastly superior geophysical modeling capabilities, integration of additional well-log data as constraints, and seamless survey merges, Phoenix offers seismic processing options that can't be found anywhere else.</p>
-		  <p class="med left">We recently released results using Phoenix and DeepTrace to process a survey in partnership with Schlumberger. Download the presentation <a href="/Phoenix/FRG_Phoenix_DeepTrace.pptx" class="blue">here (27MB)</a>.</p>
-    </div>
-
-
-    <div id="footer">
-       
-     
-    <p id="contact" class="med center">email: <a href="mailto: info@frontrangegeosciences.com" class="gray">info@frontrangegeosciences.com</a> &nbsp;| &nbsp;phone: 720-627-5035 </p>
-    
-    </div>
-    </div>
-  </body>
-  
-  <script>
-       
-  </script>
-  
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Phoenix Refraction Statics</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Phoenix Refraction Statics</h1>
+</header>
+<center>
+<a href="https://frontrangegeosciences.com/">↩︎</a>
+</center>
+<p><img src="../geop/resources/combined.png" /> <em>Velocity inversion found using Phoenix ANS tomography</em></p>
+<p>Phoenix is a near surface modeling and refraction statics package designed for the next generation of seismic surveys. Designed to run the largest datasets in hours instead of weeks, Phoenix offers unheard of performance.</p>
+<p>With vastly superior geophysical modeling capabilities, integration of additional well-log data as constraints, and seamless survey merges, Phoenix offers seismic processing options that can’t be found anywhere else.</p>
+<p>Every day tasks such as data import and survey merges, delay time and tomographic modeling, picking and QC procedures have all been parallelized and distributed, leading to speedup factors of <strong>10-100x</strong> over competitive software such as Flatirons.</p>
+<p>Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here: <a href="FRGFairfield.pdf"> <img src="paperscreenshot.png" style="max-width: 33%"/></a></p>
+<p>We have also released results using Phoenix and DeepTrace to process a survey in partnership with Schlumberger. <a href="https://frontrangegeosciences.com/Phoenix/FRG_Phoenix_DeepTrace.pptx">Download the presentation here (27MB)</a>.</p>
+<h2 id="key-features">Key Features</h2>
+<p>Phoenix’s key features include:</p>
+<ul>
+<li>Massively parallelized geophysical algorithms
+<ul>
+<li>Leveraging many-node cluster computers, Phoenix parralelizes common tasks such as tomography and delay time modeling, stacking QC, and many other processes.</li>
+</ul></li>
+<li>Process independence
+<ul>
+<li>By nature, Phoenix runs all processes in separate containers, so that many workflows can be run concurrently. Want to repick a survey while a tomographic update is running? No problem.</li>
+</ul></li>
+<li>Adaptive Node Spacing (ANS) Tomography
+<ul>
+<li>Phoenix introduces a brand new tomographic inversion algorithm that dynamically adjusts grid resolution to maximize detail in areas where it is needed, and save computation in areas which don’t.</li>
+</ul></li>
+<li>Auxiliary seismic data integration
+<ul>
+<li>Phoenix allows for the flexible import and usage of auxiliary seismic data for use with near surface modeling. For example, one can import well-log data such as sonic logs or uphole information, and use them to constrain a tomographic inversion.</li>
+</ul></li>
+<li>Distributed Project Logic
+<ul>
+<li>Combine your datasets into seamless mega-merges without hassle! Phoenix automatically and rapidly generates survey merges from disparate datasets.</li>
+</ul></li>
+</ul>
+<p>And much more! To request a demo of Phoenix or enquire about pricing, please <a href="mailto:info@frontrangegeosciences.com">contact us</a>.</p>
+<p><img src="../geop/resources/stack1.png" /></p>
+</body>
 </html>
