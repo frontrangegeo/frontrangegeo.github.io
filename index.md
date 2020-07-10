@@ -41,7 +41,7 @@ DeepTrace is an A.I. designed to pick first breaks in seismic data at human-qual
 
 <h2 style="padding-top: 0px;"> [Phoenix](https://frontrangegeosciences.com/Phoenix/) </h2>
 <a href="https://frontrangegeosciences.com/Phoenix/">
-<img src="resources/ANSTeapot.png"/>
+<img src="geop/resources/combined.png"/>
 </a>
 Phoenix is the near-surface processing suite for the next decade. 
 
