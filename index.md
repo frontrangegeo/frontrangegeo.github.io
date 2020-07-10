@@ -42,4 +42,4 @@ Bringing the functionality and mature set of tools found in competitive software
 
 ---
 
-contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035
+<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 </center>
