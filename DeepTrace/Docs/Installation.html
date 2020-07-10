@@ -75,7 +75,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="github.css" />
+  <link rel="stylesheet" href="style.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -103,7 +103,7 @@
 <li>CUDA 10.0 <a href="https://developer.nvidia.com/cuda-10.0-download-archive">(download)</a> <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile">(install)</a></li>
 <li>cuDNN <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.4.38/Production/10.0_20190923/cudnn-10.0-linux-x64-v7.6.4.38.tgz">(download)</a> <a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux">(install)</a></li>
 </ul>
-<p><em>Note: CentOS 8 installations must append –override when installing CUDA10.0 like so:</em></p>
+<p><em>Note: CentOS 8 installations must append –override when installing CUDA 10.0 like so:</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&gt;</span> <span class="fu">sudo</span> bash cuda_10.0.130_410.48_linux.run --override</span></code></pre></div>
 <p>Finally, modify the following environment variables in your <em>.bashrc</em> file:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">export</span> <span class="va">PATH=</span>/bin:/usr/local/cuda-10.0/bin:/usr/local/cuda/bin:<span class="va">$PATH</span></span>
@@ -163,6 +163,8 @@
 <p>Ensure ports 5000-50XX are open in firewall settings:</p>
 <p><code>firewall-cmd --zone=public --add-port=50XX/tcp --permanent</code></p>
 <p>where 50XX runs through the number of available CPU cores on the GPU node, plus five. E.g. if there are 12 CPU threads available on the GPU machine, ports 5000-5017 should be opened.</p>
+<p>Finally, reload the firewall settings:</p>
+<p><code>firewall-cmd --reload</code></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Monitor GPU utilization on the GPU nodes with</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">watch</span> -n0.1 nvidia-smi</span></code></pre></div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AdvancedPicking</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="advanced-picking-with-deeptrace">Advanced Picking with DeepTrace</h1>
+<p><a href="index.html">Back to Main Page</a></p>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#ensembling">Ensembling</a></li>
+<li><a href="#video">Video</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This guide covers advanced picking methods with DeepTrace which give optimal results.</p>
+<h2 id="ensembling">Ensembling</h2>
+<p>DeepTrace ships with a variety of neural networks which have been trained in subtley different ways, each one producing a slightly different set of picks. One model may decide to jump down from a fading leg, while another stays longer before switching events. Just as different humans may have different opinions about which event is “correct”, different neural networks do as well.</p>
+<p>It is a known generic result in classification with deep neural networks that ensembling the opinions from various networks increases overall accuracy. We see similar results with DeepTrace, and further use some very basic statistical analyses to increase the robustness of picking greatly.</p>
+<p>The following image shows 3 sets of first break predictions from 3 different DeepTrace models in red, green, and blue:</p>
+<p><img src="Resources/AdvancedPicking/ensemble.png" /></p>
+<p>We have snapped each network’s prediction to a peak, and can see that they disagree about precisely which peak to be on occasionally (<em>note: when the picks all agree, only the red pick is displayed, the others are underneath in the display</em>).</p>
+<p>We would like to automatically kill picks on which the networks disagree about the precise peak. Luckily, there is a tool in Phoenix for this: Add <span class="math inline">\(\rightarrow\)</span> Picking <span class="math inline">\(\rightarrow\)</span> Pick averaging</p>
+<p>The “Pick averaging” module allows you to combine multiple sets of picks into an average, and kill the resultant pick if the standard deviation is higher than some threshold. By making that threshold less than the time of one wavelet cycle, we can kill all picks where the networks disagree about the exact event to be on (note that this same methodlogy could be applied to picks which have been snapped to trough, or to energy onset).</p>
+<p>Combining the picks in this way and setting a strong standard deviation threshold of about 8ms, we get an excellent set of picks:</p>
+<p><img src="Resources/AdvancedPicking/ensembled.png" /></p>
+<p>Using this method of multiple DeepTrace picks, snapping to the desired event, and statistically averaging and killing picks produces consistently excellent results, and is a highly recommended way to use DeepTrace. If multiple GPUs are not available to simultaneously produce multiple sets of picks, the user should produce a single set of DeepTrace picks multiple times, saving the picks to different picking columns, and finally run the averaging at the end when all picks are available.</p>
+<p>To review, the pick flow would look like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Pick Flow Item</th>
+<th>Module Options</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Moveout Trend</td>
+<td>Default</td>
+</tr>
+<tr class="even">
+<td>DeepTrace</td>
+<td>Moveout Smooth Model #1</td>
+</tr>
+<tr class="odd">
+<td>DeepTrace</td>
+<td>Moveout Smooth Model #2</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>Snap to Event/Energy Onset</td>
+<td>Peak/Trough/Energy Onset<br>DeepTrace Picks #1</td>
+</tr>
+<tr class="even">
+<td>Snap to Event/Energy Onset</td>
+<td>Peak/Trough/Energy Onset<br>DeepTrace Picks #2</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td>Pick Averaging</td>
+<td>Snapped Picks #1<br>Snapped Picks #2<br>…</td>
+</tr>
+</tbody>
+</table>
+<p>Using this method, excellent picks can be achieved, even using only the “smooth” models which are not sensitive to precise events.</p>
+<h2 id="video">Video</h2>
+<p><em>Note: In this video, we use AANS Tomography to move the data out, rather than a moveout trend</em></p>
+<video width="900" controls>
+<source src="Resources/AdvancedPicking/ensembling.mp4" type="video/mp4">
+</video>
+</body>
+</html>
