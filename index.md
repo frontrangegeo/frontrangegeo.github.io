@@ -21,7 +21,7 @@ Leveraging our experience as the developers of the industry-standard software su
 
 <div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-rule: 1px dotted #e0e0e0; -moz-column-rule: 1px dotted #e0e0e0; column-rule: 1px dotted #e0e0e0;">
 
-<br>
+
 
 ## [DeepTrace](https://frontrangegeosciences.com/DeepTrace/)
 <a href="https://frontrangegeosciences.com/DeepTrace/">
@@ -29,7 +29,7 @@ Leveraging our experience as the developers of the industry-standard software su
 </a>
 DeepTrace is an A.I. designed to pick first breaks in seismic data at human-quality. Using DeepTrace, first break picking time can be reduced from weeks to hours.
 
-<br>
+<p></p>
 
 ## [Phoenix](https://frontrangegeosciences.com/Phoenix/)
 <a href="https://frontrangegeosciences.com/Phoenix/">
@@ -42,4 +42,4 @@ Bringing the functionality and mature set of tools found in competitive software
 
 ---
 
-<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 </center>
+<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>
