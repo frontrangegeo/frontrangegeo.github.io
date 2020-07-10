@@ -21,28 +21,34 @@ Leveraging our experience as the developers of the industry-standard software su
 
 <div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-rule: 1px dotted #e0e0e0; -moz-column-rule: 1px dotted #e0e0e0; column-rule: 1px dotted #e0e0e0;">
 
+<div style="display: inline-block;">
 
 
-<h2 style="padding-top: 0px;"> [DeepTrace](https://frontrangegeosciences.com/DeepTrace/)</h2>
+<h2 style="padding-top: 0px;"> <a href="https://frontrangegeosciences.com/DeepTrace/">DeepTrace</a></h2>
 <a href="https://frontrangegeosciences.com/DeepTrace/">
-![](resources/noisyseismic.png)
+<img src="resources/noisyseismic.png"/>
 </a>
 
 DeepTrace is an A.I. designed to pick first breaks in seismic data at human-quality. Using DeepTrace, first break picking time can be reduced from weeks to hours.
 
-[Get more info!](https://frontrangegeosciences.com/DeepTrace)
+<a href="https://frontrangegeosciences.com/DeepTrace">Get more info.</a>
+</div>
 
 <p></p>
 
-<h2 style="padding-top: 25px;"> [Phoenix](https://frontrangegeosciences.com/Phoenix/) </h2>
+
+<div style="display: inline-block;">
+
+<h2 style="padding-top: 0px;"> [Phoenix](https://frontrangegeosciences.com/Phoenix/) </h2>
 <a href="https://frontrangegeosciences.com/Phoenix/">
-![](resources/ANSTeapot.png)
+<img src="resources/ANSTeapot.png"/>
 </a>
 Phoenix is the near-surface processing suite for the next decade. 
 
 Improving upon the functionality and tooling found in competitive software, Phoenix massively increases processing speeds by allowing unlimited parallelization across distributed computing clusters. Process billions of traces in hours instead of weeks.
 
-[Get more info!](https://frontrangegeosciences.com/Phoenix)
+<a href="https://frontrangegeosciences.com/Phoenix">Get more info.</a>
+</div>
 </div>
 
 ---
