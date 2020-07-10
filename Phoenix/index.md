@@ -32,7 +32,10 @@ Phoenix's key features include:
 
 And much more! To request a demo of Phoenix or enquire about pricing, please [contact us](mailto:info@frontrangegeosciences.com).
 
+## Documentation
+[Current Phoenix users can find the documentation here.](https://frontrangegeosciences.com/Phoenix/Docs/)
 ![](../geop/resources/stack1.png)
+
 ---
 <center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)
 <br>
