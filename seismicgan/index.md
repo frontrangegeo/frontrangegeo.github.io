@@ -3,11 +3,14 @@ title: Seismic GAN
 header-includes:
 	<meta property="og:image" content="http://frontrangegeosciences.com/resources/noisyseismic.png" />
 ---
-
+<center><a href="https://frontrangegeosciences.com/">↩</a></center>
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
        <source src="../resources/5820.mp4"
             type="video/mp4">
 </video>
+
+<center>Technical Blog Post for FRG by [Branton Demoss](https://brantondemoss.com/)</center>
+---
 
 In machine learning we are often trying to get some algorithm or learning system to understand abstract attributes of a data distribution of interest. In our case, seismic data from a wide variety of geologic contexts. 
 
