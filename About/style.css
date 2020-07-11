@@ -41,6 +41,7 @@ body h1 {
   font-size: 2em;
   margin: 0.67em 0;
   text-align-last: center; 
+  text-align: -webkit-center;
 }
 
 body img {
@@ -689,6 +690,7 @@ body :checked+.radio-label {
 	  width: 50%; 
 	  margin-left: 25%; 
 	  text-align: center; 
+	  text-align: -webkit-center;
 	  margin-top: 0px; 
 	  padding-top: 0px;
 }
@@ -724,4 +726,5 @@ body p {
 
 h2 { 
    text-align-last: center;
+   text-align: -webkit-center;
 }
