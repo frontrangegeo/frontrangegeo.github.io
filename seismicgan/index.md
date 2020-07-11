@@ -1,6 +1,8 @@
-<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</center>
+<div style="vertical-align: bottom;padding: 0px; margin: 0px;text-align: center; height: 3em;line-height: 3em; width: 100%;display: inline-block">
+<img src="../FRGLogo.png" style="position: absolute; left: 25%; top: 0px; max-height: 3em;"/>
+[Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</div>
 
----
+<hr style="margin-top: 0px;"/>
 
 # Seismic GAN
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
