@@ -1,7 +1,11 @@
-% DeepTrace
+<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</center>
+
+---
+
+# DeepTrace
 <h3 style="text-align-last: center;">AI for First Break Picking</h3>
 
-<center><a href="https://frontrangegeosciences.com/">↩</a></center>
+
 ![](../resources/noisyseismic.png)
 *First breaks identified by DeepTrace*
 
@@ -49,7 +53,5 @@ To request a demo of DeepTrace or enquire about pricing, please [contact us](mai
 ![](../geop/resources/stack1.png)
 
 ---
-<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)
-<br>
 <center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>
 
