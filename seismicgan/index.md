@@ -1,9 +1,8 @@
+<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</center>
+
 ---
-title: Seismic GAN
-header-includes:
-	<meta property="og:image" content="http://frontrangegeosciences.com/resources/noisyseismic.png" />
----
-<center><a href="https://frontrangegeosciences.com/">↩</a></center>
+
+# Seismic GAN
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
        <source src="../resources/5820.mp4"
             type="video/mp4">

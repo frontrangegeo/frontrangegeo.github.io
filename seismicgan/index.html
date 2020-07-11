@@ -18,15 +18,13 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <meta property="og:image" content="http://frontrangegeosciences.com/resources/noisyseismic.png" />
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">Seismic GAN</h1>
-</header>
 <center>
-<a href="https://frontrangegeosciences.com/">↩︎</a>
+<a href="https://frontrangegeosciences.com/">Home</a> | <a href="https://frontrangegeosciences.com/DeepTrace">DeepTrace</a> | <a href="https://frontrangegeosciences.com/Phoenix">Phoenix</a> | <a href="https://frontrangegeosciences.com/About">Company</a>
 </center>
+<hr />
+<h1 id="seismic-gan">Seismic GAN</h1>
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
 <source src="../resources/5820.mp4"
             type="video/mp4">
@@ -63,7 +61,7 @@ Technical Blog Post for FRG by <a href="https://brantondemoss.com/">Branton Demo
 <p>Note also that we did not specify what the input to <span class="math inline">\(G\)</span> is. We feed it Gaussian noise, and as if it were the decoder in an autoencoder, we can think of its input as noise in a latent space. By carefully training <span class="math inline">\(G\)</span> and <span class="math inline">\(D\)</span> in turn, <span class="math inline">\(G\)</span> eventually learns to produce quite realistic-seeming samples from the true distribution of data, receiving only noise as input.</p>
 <p>Since the whole network is a differentiable (and therefore continuous) function with respect to its input, which we interpret as a latent space, we can take continuous walks through the latent space and watch as the generator produces continuously varying images which seem to semantically interpolate through abstract features. A popular GAN training set is human faces, so that a walk through latent space produces these unsettling GIFs:</p>
 <p><img src="nvidiafacegan.gif" /> <em>Continuous walk through latent space in Nvidia’s GAN<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></em></p>
-<h2 id="seismic-gan">Seismic GAN</h2>
+<h2 id="seismic-gan-1">Seismic GAN</h2>
 <p>As a powerful general-purpose generative model, we can train a GAN on all kinds of seismic data without the need to worry about task-specific labels!</p>
 <p>Training GANs, however, is notoriously tricky. Everyone’s experience seems somewhat different, but a <a href="https://github.com/soumith/ganhacks">whole slew</a> of <a href="https://arxiv.org/pdf/1809.11096.pdf#page=23">tricks</a> are known to help stabilize GAN convergence. Personally, I found Spectral Normalization<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and avoiding sigmoid activation in the output layer due to clipping<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> (do BCE directly on the logits) to be the most beneficial hacks, but YMMV.</p>
 <p>Finally with our trained generator and discriminator, we can transfer their learned weights to other networks for downstream task finetuning! But before that, let’s take a look at some generated samples by walking through latent space à la the face GANs. We get some beautiful generated “dreams” of seismic data:</p>

@@ -53,5 +53,7 @@ To request a demo of DeepTrace or enquire about pricing, please [contact us](mai
 ![](../geop/resources/stack1.png)
 
 ---
-<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>
+<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA
+<br/>
+<img src="../FRGLogo.png" style="height: 80px;"/></center>
 

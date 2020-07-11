@@ -48,4 +48,6 @@ Improving upon the functionality and tooling found in competitive software, Phoe
 </div>
 
 ---
-<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>
+<center style="padding-bottom: 0px; margin-bottom: 0px;"> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA
+<br/>
+<img src="FRGLogo.png" style="height: 80px;"/></center>
