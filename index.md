@@ -1,13 +1,10 @@
+<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)</center>
+
 ---
-title: Front Range Geosciences
-header-includes:
-    - \usepackage{multicol}
-    - \newcommand{\hideFromPandoc}[1]{#1}
-    - \hideFromPandoc{
-        \let\Begin\begin
-        \let\End\end
-      }
----
+
+
+# Front Range Geosciences
+
 
 <a href="https://frontrangegeosciences.com/seismicgan/">
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
