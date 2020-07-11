@@ -41,7 +41,7 @@ DeepTrace's key features include:
 - Quality
   - Existing autopickers cannot identify first breaks in geologically complex and noisy seismic data. DeepTrace has learned from terabytes of manually picked human data to see through the noise and identify first breaks in even the most difficult scenarios.
 - Continuous training
-  - FRG is constantly training DeepTrace to improve its performance. We are continaully refining the neural architecture, training data, and other hyperparameters to improve DeepTrace.
+  - FRG is constantly training DeepTrace to improve its performance. We are continually refining the neural architecture, training data, and other hyperparameters to improve DeepTrace.
   - Uniquely, DeepTrace users can *train DeepTrace on their own seismic data library*, leveraging their unique collection of picked seismic data to improve DeepTrace on data only they have access to.
 - Integration with Phoenix
   - DeepTrace integrates seamlessly with our Phoenix Refraction Statics software to pick seismic data in the unified Phoenix environment. There is no need to export/import data from DeepTrace - it just works!

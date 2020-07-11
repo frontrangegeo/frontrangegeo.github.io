@@ -23,7 +23,7 @@ We have also released results using Phoenix and DeepTrace to process a survey in
 Phoenix's key features include:
 
 - Massively parallelized geophysical algorithms
-  - Leveraging many-node cluster computers, Phoenix parralelizes common tasks such as tomography and delay time modeling, stacking QC, and many other processes.
+  - Leveraging many-node cluster computers, Phoenix parallelizes common tasks such as tomography and delay time modeling, stacking QC, and many other processes.
 - Process independence 
   - By nature, Phoenix runs all processes in separate containers, so that many workflows can be run concurrently. Want to repick a survey while a tomographic update is running? No problem.
 - Adaptive Node Spacing (ANS) Tomography
