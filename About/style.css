@@ -14,9 +14,10 @@ body {
   width: 100%;
   max-width: 99%;
   box-sizing: border-box;
-  padding: 30px 30px 1rem 30px;
+  padding: 0px 30px 1rem 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0px;
 }
 
 video {
