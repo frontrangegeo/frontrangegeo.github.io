@@ -37,7 +37,7 @@ We partnered with [Lenovo](https://www.lenovo.com) at SEG 2019 to demonstrate ho
 DeepTrace's key features include:
 
 - Speed
-  - Leveraging GPUs to parrallelize complex neural network computation, DeepTrace can be easily distributed across many GPUs, allowing unlimited scaling with user hardware. Using a modern 6 GPU cluster, DeepTrace can pick billions of traces per hour.
+  - Leveraging GPUs to parallelize complex neural network computation, DeepTrace can be easily distributed across many GPUs, allowing unlimited scaling with user hardware. Using a modern 6 GPU cluster, DeepTrace can pick billions of traces per hour.
 - Quality
   - No autopicker can identify first break in geologically complex and noisy seismic data. DeepTrace has learned from terabytes of manually picked human data to see through the noise and identify first breaks in even the most difficult scenarios.
 - Continuous training
