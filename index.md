@@ -1,10 +1,10 @@
-<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)</center>
+<title>FRG</title>
+<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</center>
 
 ---
 
 
 # Front Range Geosciences
-
 
 <a href="https://frontrangegeosciences.com/seismicgan/">
 <video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
@@ -49,7 +49,4 @@ Improving upon the functionality and tooling found in competitive software, Phoe
 </div>
 
 ---
-
-<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)
-<br>
 <center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>

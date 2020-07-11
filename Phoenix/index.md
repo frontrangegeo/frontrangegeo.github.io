@@ -1,6 +1,9 @@
-% Phoenix Refraction Statics
+<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</center>
 
-<center><a href="https://frontrangegeosciences.com/">↩</a></center>
+---
+
+# Phoenix Refraction Statics
+
 ![](../geop/resources/combined.png)
 *Velocity inversion found using Phoenix ANS tomography*
 
@@ -37,7 +40,4 @@ And much more! To request a demo of Phoenix or enquire about pricing, please [co
 ![](../geop/resources/stack1.png)
 
 ---
-<center> [Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix)
-<br>
 <center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA</center>
-
