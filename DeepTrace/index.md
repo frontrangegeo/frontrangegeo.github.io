@@ -29,7 +29,7 @@ Read our case-study using Phoenix and DeepTrace to process a difficult survey pr
 
 We have also released results using Phoenix and DeepTrace to process a survey in partnership with Schlumberger. [Download the presentation here (27MB)](https://frontrangegeosciences.com/Phoenix/FRG_Phoenix_DeepTrace.pptx).
 
-We partnered with [Lenovo](https://www.lenovo.com) at SEG 2019 to demonstrate how GPU compute accelerates neural netoworks like DeepTrace. You can find our presentation here:
+We partnered with [Lenovo](https://www.lenovo.com) at SEG 2019 to demonstrate how GPU compute accelerates neural networks like DeepTrace. You can find our presentation here:
 
 <a href="https://frontrangegeosciences.com/DeepTrace/DeepTracePresentation.pdf"><img src="lenovo.png"/></a>
 
