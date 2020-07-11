@@ -452,7 +452,7 @@ body table tr:nth-child(2n) {
 }
 
 body img {
-  max-width: 80%;
+  max-width: 100%;
   display: block; 
   margin-left: auto; 
   margin-right: auto;
