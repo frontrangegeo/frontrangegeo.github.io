@@ -17,7 +17,7 @@ Dr. Matt Duiker has over 30 years of experience in geoscience technology develop
 
 <div style="padding-top: 40px; padding-bottom: 60px;">
 <img src="branton.jpg" align="left" style= "padding-left: 20px;padding-right: 10px;width: 200px;" /img>
-Branton Demoss is a physicist and software developer who specializes in artificial intelligence. His academic research spanned a variety of topics in theoretical and computational physics, from high energy particle physics simulations to knot theory. He previously read for an MMathPhys at the University of Oxford and for a BA in Math and Physics at the University of Colorado.
+Branton Demoss is a physicist and software developer who specializes in machine learning. His academic research spanned a variety of topics in theoretical and computational physics, from high energy particle physics simulations to knot theory. He previously read for an MMathPhys at the University of Oxford and for a BA in Math and Physics at the University of Colorado.
 </div>
 
 <p></p>
