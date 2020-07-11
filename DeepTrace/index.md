@@ -39,7 +39,7 @@ DeepTrace's key features include:
 - Speed
   - Leveraging GPUs to parallelize complex neural network computation, DeepTrace can be easily distributed across many GPUs, allowing unlimited scaling with user hardware. Using a modern 6 GPU cluster, DeepTrace can pick billions of traces per hour.
 - Quality
-  - No autopicker can identify first break in geologically complex and noisy seismic data. DeepTrace has learned from terabytes of manually picked human data to see through the noise and identify first breaks in even the most difficult scenarios.
+  - Existing autopickers cannot identify first breaks in geologically complex and noisy seismic data. DeepTrace has learned from terabytes of manually picked human data to see through the noise and identify first breaks in even the most difficult scenarios.
 - Continuous training
   - FRG is constantly training DeepTrace to improve its performance. We are continaully refining the neural architecture, training data, and other hyperparameters to improve DeepTrace.
   - Uniquely, DeepTrace users can *train DeepTrace on their own seismic data library*, leveraging their unique collection of picked seismic data to improve DeepTrace on data only they have access to.
