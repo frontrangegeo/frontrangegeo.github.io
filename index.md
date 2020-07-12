@@ -8,13 +8,14 @@
 # Front Range Geosciences
 
 <a href="https://frontrangegeosciences.com/seismicgan/">
-<video autoplay playsinline loop muted width="420" class="top" style="width: 50%;margin-left: 25%;float: center">
+<video autoplay playsinline loop muted class="top" style="width: 70%;margin-left: 15%; margin-right: auto;">
        <source src="resources/5820.mp4"
             type="video/mp4">
-</video></a>
+</video>
+*A continuous walk through seismic latent space*
+</a>
 
-
-Leveraging our experience as the developers of the industry-standard software suite FLATIRONS, Front Range Geosciences is bringing to market the next generation of near-surface processing technology. Our new products, Phoenix and DeepTrace, increase the speed of processing workflows by **orders of magnitude**, and simultaneously increase their quality and geologic accuracy with brand new geophysical algorithms.
+Front Range Geosciences innovates in fundamental seismic data processing technology. With a laser focus on near-surface geophysical modeling, we bring our decades of experience developing software such as the industry-leading FLATIRONS suite to the development of next-generation seismic software. Our new products, Phoenix and DeepTrace, increase the speed of processing workflows by **orders of magnitude**, while simultaneously increasing their quality and geologic accuracy with brand new geophysical algorithms.
 
 
 <div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-rule: 1px dotted #e0e0e0; -moz-column-rule: 1px dotted #e0e0e0; column-rule: 1px dotted #e0e0e0;">
