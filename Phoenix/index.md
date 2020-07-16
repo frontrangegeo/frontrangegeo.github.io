@@ -24,7 +24,7 @@ Phoenix is a near surface modeling and refraction statics package designed for t
 
 With vastly superior geophysical modeling capabilities, integration of additional well-log data as constraints, and seamless survey merges, Phoenix offers seismic processing options that can't be found anywhere else.
 
-Every day tasks such as data import and survey merges, delay time and tomographic modeling, picking and QC procedures have all been parallelized and distributed, leading to speedup factors of **10-100x** over competitive software such as Flatirons.
+Every day tasks such as data import and survey merges, delay time and tomographic modeling, picking and QC procedures have all been parallelized and distributed, leading to speedup factors of **5-50x** over competitive software such as Flatirons.
 
 Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here:
 <a href="FRGFairfield.pdf">
