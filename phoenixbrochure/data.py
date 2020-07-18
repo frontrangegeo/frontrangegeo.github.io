@@ -1,18 +1,18 @@
 times = {#All values in hours
-    'Tomography' : {#373M traces
-        'Phoenix' : 21,
-        'Flatirons' : 91,
+    'Data Import' : {
+        'Phoenix':28,
+        'Flatirons':100,
+    },
+    'Tomo' : {#373M traces
+        'Phoenix' : 23,
+        'Flatirons' : 100,
     },
     'Delay Time Stacks' : {
-        'Phoenix':1,
-        'Flatirons':6,
-    },
-    'Data Import' : {
-        'Phoenix':1,
-        'Flatirons':5,
+        'Phoenix':17,
+        'Flatirons':100,
     },
     'Delay Time' : {
-        'Phoenix' : 0.1,
-        'Flatirons' : 5,
+        'Phoenix' : 14,
+        'Flatirons' : 100,
     },
 }
