@@ -466,7 +466,7 @@ body img {
 }
 
 img + em { display: block; text-align: center; max-width: 80%; margin-left: 10%; padding-left: 0px;}
-video + em { display: block; text-align: center; max-width: 80%; margin-left: 10%; padding-left: 0px;}
+video + em { display: block; text-align: center; }
 
 table + em {display: block; text-align: center;}
 
