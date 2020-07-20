@@ -8,6 +8,8 @@ header-includes:
   		gtag('js', new Date());
   		gtag('config', 'UA-48874513-3');
 	</script>
+        <link rel="icon" sizes="16x16 32x32" type="image/png" href="FRGLogo.ico">
+
 ---
 <div style="vertical-align: bottom;padding: 0px; margin: 0px;text-align: center; height: 3em;line-height: 3em; width: 100%;display: inline-block">
 <img src="FRGLogo.png" style="position: absolute; left: 25%; top: 0px; max-height: 3em;"/>
@@ -19,11 +21,13 @@ header-includes:
 # Front Range Geosciences
 
 <a href="https://frontrangegeosciences.com/seismicgan/">
-<video autoplay playsinline loop muted class="top" style="width: 70%;margin-left: 15%; margin-right: auto;">
+<center>
+<video autoplay playsinline loop muted class="top" style="width: 70%;max-width: 670px;margin-left: auto; margin-right: auto;">
        <source src="resources/5820.mp4"
             type="video/mp4">
 </video>
 *A continuous walk through seismic latent space*
+</center>
 </a>
 
 Front Range Geosciences innovates in fundamental seismic data processing technology. With a laser focus on near-surface geophysical modeling, we bring our decades of experience developing software such as the industry-leading FLATIRONS suite to the development of next-generation seismic software. Our new products, Phoenix and DeepTrace, increase the speed of processing workflows by **orders of magnitude**, while simultaneously increasing their quality and geologic accuracy with brand new geophysical algorithms.

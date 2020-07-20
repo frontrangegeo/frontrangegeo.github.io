@@ -8,6 +8,7 @@ header-includes:
                 gtag('js', new Date());
                 gtag('config', 'UA-48874513-3');
         </script>
+	<link rel="icon" sizes="16x16 32x32" type="image/png" href="../FRGLogo.ico">
 ---
 <div style="vertical-align: bottom;padding: 0px; margin: 0px;text-align: center; height: 3em;line-height: 3em; width: 100%;display: inline-block">
 <img src="../FRGLogo.png" style="position: absolute; left: 25%; top: 0px; max-height: 3em;"/>
