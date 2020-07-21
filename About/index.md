@@ -50,6 +50,7 @@ Tom Zang is the controller of Front Range Geosciences and its sister company, Xt
 
 
 ---
-<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA
+<center style="padding-bottom: 0px; margin-bottom: 0px;">T: +1 720.627.5035
+<br/>[info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com)
 <br/>
-<img src="../FRGLogo.png" style="height: 80px;"/></center>
+<img src="FRGLogo.png" style="height: 80px;"/></center>

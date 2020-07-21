@@ -54,6 +54,7 @@ And much more! To request a demo of Phoenix or enquire about pricing, please [co
 ![](../geop/resources/stack1.png)
 
 ---
-<center> contact: [info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com) | 720-627-5035 | Boulder, CO, USA
+<center style="padding-bottom: 0px; margin-bottom: 0px;">T: +1 720.627.5035
+<br/>[info@frontrangegeosciences.com](mailto:info@frontrangegeosciences.com)
 <br/>
-<img src="../FRGLogo.png" style="height: 80px;"/></center>
+<img src="FRGLogo.png" style="height: 80px;"/></center>
