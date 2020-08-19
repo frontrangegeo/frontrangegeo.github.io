@@ -46,6 +46,16 @@ DeepTrace recently upgraded to output full probability distributions over traces
 
 The tomographic inversions in Phoenix are being updated to take advantage of the full probability distribution produced by DeepTrace, so that a single pick value never needs to be created. By using the full probability distribution in the inversion, Phoenix produces tomographic models with richer information, and which incorporate the inherent uncertainty in the first energy arrival into the velocity model.
 
+### Handling Shingling
+<video width="900" loop autoplay muted playsinline>
+       <source src="shinglingprob.mp4" type="video/mp4">
+</video>
+<center>*Multimodal probability distribution predicted by DeepTrace in the presence of shingling*</center>
+
+In seismic data with strong shingling, a unique first break event can be hard to identify. Rather than make an arbitrary choice between multiple potential candidates, DeepTrace's predicted probability distribution automatically handles multimodal energy arrival.
+
+Using the probabilistic tomographic inversion in Phoenix, your picking and velocity models will automatically account for strong shingling and ambiguous arrivals.
+
 ## Information
 Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here:
 <a href="FRGFairfield.pdf">

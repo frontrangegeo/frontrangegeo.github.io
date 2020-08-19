@@ -49,6 +49,15 @@ AI for First Break Picking
 </center>
 <p>DeepTrace recently upgraded to output full probability distributions over traces, so that users can choose first breaks according to a confidence threshold to automatically kill picks in noisy areas.</p>
 <p>The tomographic inversions in Phoenix are being updated to take advantage of the full probability distribution produced by DeepTrace, so that a single pick value never needs to be created. By using the full probability distribution in the inversion, Phoenix produces tomographic models with richer information, and which incorporate the inherent uncertainty in the first energy arrival into the velocity model.</p>
+<h3 id="handling-shingling">Handling Shingling</h3>
+<video width="900" loop autoplay muted playsinline>
+<source src="shinglingprob.mp4" type="video/mp4">
+</video>
+<center>
+<em>Multimodal probability distribution predicted by DeepTrace in the presence of shingling</em>
+</center>
+<p>In seismic data with strong shingling, a unique first break event can be hard to identify. Rather than make an arbitrary choice between multiple potential candidates, DeepTrace’s predicted probability distribution automatically handles multimodal energy arrival.</p>
+<p>Using the probabilistic tomographic inversion in Phoenix, your picking and velocity models will automatically account for strong shingling and ambiguous arrivals.</p>
 <h2 id="information">Information</h2>
 <p>Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here: <a href="FRGFairfield.pdf"> <img src="paperscreenshot.png" style="max-width: 33%"/></a></p>
 <p>We have also released results using Phoenix and DeepTrace to process a survey in partnership with Schlumberger. <a href="https://frontrangegeosciences.com/Phoenix/FRG_Phoenix_DeepTrace.pptx">Download the presentation here (27MB)</a>.</p>
