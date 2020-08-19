@@ -36,6 +36,16 @@ DeepTrace can pick in hours what humans take weeks, or in some cases months, to 
 
 By its nature DeepTrace can continue to learn from new data sources - by training their own copy of DeepTrace on their historical data archives, processors can leverage decades of effort spent picking first breaks to produce DeepTrace models that out-perform humans in most contexts.
 
+## Probability (new)
+<video width="900" loop autoplay muted playsinline>
+       <source src="dtprob.mp4" type="video/mp4">
+</video>
+<center>*First break probability distribution predicted by DeepTrace*</center>
+
+DeepTrace recently upgraded to output full probability distributions over traces, so that users can choose first breaks according to a confidence threshold to automatically kill picks in noisy areas.
+
+The tomographic inversions in Phoenix are being updated to take advantage of the full probability distribution produced by DeepTrace, so that a single pick value never needs to be created. By using the full probability distribution in the inversion, we can produce tomographic models with richer information, and which incorporate pick unvertainty in the velocity model.
+
 ## Information
 Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here:
 <a href="FRGFairfield.pdf">
