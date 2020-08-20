@@ -36,21 +36,26 @@ DeepTrace can pick in hours what humans take weeks, or in some cases months, to 
 
 By its nature DeepTrace can continue to learn from new data sources - by training their own copy of DeepTrace on their historical data archives, processors can leverage decades of effort spent picking first breaks to produce DeepTrace models that out-perform humans in most contexts.
 
-## Probability (new)
+## Probability
 <video width="900" loop autoplay muted playsinline>
        <source src="dtprob.mp4" type="video/mp4">
 </video>
 <center>*First break probability distribution predicted by DeepTrace*</center>
 
-DeepTrace recently upgraded to output full probability distributions over traces, so that users can choose first breaks according to a confidence threshold to automatically kill picks in noisy areas.
+In addition to producing picks directly, DeepTrace has also been trained to output probability distributions over traces. The probability distribution encodes DeepTrace's opinion about different likely first breaks, which can account for uncertainty due to noise, ambiguous arrivals, and shingling.
 
-The tomographic inversions in Phoenix are being updated to take advantage of the full probability distribution produced by DeepTrace, so that a single pick value never needs to be created. By using the full probability distribution in the inversion, Phoenix produces tomographic models with richer information, and which incorporate the inherent uncertainty in the first energy arrival into the velocity model.
+These probability distributions can be used in a few different ways:
 
-### Handling Shingling
+ - Users can automatically kill picks with high spread, i.e. picks which are inherently ambiguous in their arrival, or which DeepTrace is uncertain about.
+ - Users can optionally generate a tomographic model *using the full probability distribution in the inversion*: Phoenix's tomography can incorporate probability distributions during the inversion phase, so that the resultant velocity model automatically accounts for the uncertainty in arrival time, producing a much richer representation from the full distribution rather than a single pick.
+
+Using the full probability distribution, geophysicist's time can be saved from having to make complex and ambiguous picking decisions: with the distributional approach, all possibilities are accounted for simultaneously.
+
+### Shingling
 <video width="900" loop autoplay muted playsinline>
        <source src="shinglingprob.mp4" type="video/mp4">
 </video>
-<center>*Multimodal probability distribution predicted by DeepTrace in the presence of shingling*</center>
+<center>*Bimodal probability distribution predicted by DeepTrace in the presence of shingling*</center>
 
 In seismic data with strong shingling, a unique first break event can be hard to identify. Rather than make an arbitrary choice between multiple potential candidates, DeepTrace's predicted probability distribution automatically handles multimodal energy arrival.
 
