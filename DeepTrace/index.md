@@ -49,7 +49,7 @@ These probability distributions can be used in a few different ways:
  - Users can automatically kill picks with high spread, i.e. picks which are inherently ambiguous in their arrival, or which DeepTrace is uncertain about.
  - Users can optionally generate a tomographic model *using the full probability distribution in the inversion*: Phoenix's tomography can incorporate probability distributions during the inversion phase, so that the resultant velocity model automatically accounts for the uncertainty in arrival time, producing a much richer representation from the full distribution rather than a single pick.
 
-Using the full probability distribution, geophysicist's time can be saved from having to make complex and ambiguous picking decisions: with the distributional approach, all possibilities are accounted for simultaneously.
+Using the full probability distribution, geophysicists' time can be saved by reducing complex and ambiguous picking decisions: with the distributional approach, all possibilities are accounted for simultaneously.
 
 ### Shingling
 <video width="900" loop autoplay muted playsinline>
