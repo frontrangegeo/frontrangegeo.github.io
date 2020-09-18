@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Installation.md – Installation</title>
+  <title>Installation</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@
 <span id="cb4-2"><a href="#cb4-2"></a><span class="ex">deeptracehead.service</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="ex">deeptracemodel.service</span></span></code></pre></div>
 <p>The following command will achieve this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sed</span> -i <span class="st">&#39;s|/usr/local|/your/install/path|g&#39;</span> deeptracehead.service deeptracemodel.service installdeeptrace.sh</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="va">CUSTOMDEEPTRACEPATH=</span><span class="st">&#39;/your/custom/path&#39;</span>; <span class="fu">sed</span> -i <span class="st">&quot;s|ExecStart=/usr/local|ExecStart=</span><span class="va">${CUSTOMDEEPTRACEPATH}</span><span class="st">|g&quot;</span> deeptracehead.service deeptracemodel.service<span class="kw">;</span> <span class="fu">sed</span> -i <span class="st">&quot;s|/usr/local|</span><span class="va">${CUSTOMDEEPTRACEPATH}</span><span class="st">|g&quot;</span> installdeeptrace.sh</span></code></pre></div>
 <p>Now that DeepTrace and the system service unit files are installed, run</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
 <p>to get access to the DeepTrace service.</p>
