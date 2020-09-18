@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -40,6 +40,29 @@ AI for First Break Picking
 <p>DeepTrace is an AI that leverages modern breakthroughs in computer vision to finally enable automatic picking at human-quality. DeepTrace has been trained on terabytes of manually picked seismic data in a diverse set of geologic contexts and has learned how to pick first breaks “like a human would”. DeepTrace’s average disagreement with manual human picks is <span class="math inline">\(&lt; 5 ms\)</span>, approaching the resolution limit of most seismic data.</p>
 <p>DeepTrace can pick in hours what humans take weeks, or in some cases months, to process. By scaling GPU compute resources with dataset size, any survey can be automatically picked by DeepTrace, freeing up valuable human time to explore more complex geophysical modeling decisions.</p>
 <p>By its nature DeepTrace can continue to learn from new data sources - by training their own copy of DeepTrace on their historical data archives, processors can leverage decades of effort spent picking first breaks to produce DeepTrace models that out-perform humans in most contexts.</p>
+<h2 id="probability">Probability</h2>
+<video width="900" loop autoplay muted playsinline>
+<source src="dtprob.mp4" type="video/mp4">
+</video>
+<center>
+<em>First break probability distribution predicted by DeepTrace</em>
+</center>
+<p>In addition to producing picks directly, DeepTrace has also been trained to output probability distributions over traces. The probability distribution encodes DeepTrace’s opinion about different likely first breaks, which can account for uncertainty due to noise, ambiguous arrivals, and shingling.</p>
+<p>These probability distributions can be used in a few different ways:</p>
+<ul>
+<li>Users can automatically kill picks with high spread, i.e. picks which are inherently ambiguous in their arrival, or which DeepTrace is uncertain about.</li>
+<li>Users can optionally generate a tomographic model <em>using the full probability distribution in the inversion</em>: Phoenix’s tomography can incorporate probability distributions during the inversion phase, so that the resultant velocity model automatically accounts for the uncertainty in arrival time, producing a much richer representation from the full distribution rather than a single pick.</li>
+</ul>
+<p>Using the full probability distribution, geophysicists’ time can be saved by reducing complex and ambiguous picking decisions: with the distributional approach, all possibilities are accounted for simultaneously.</p>
+<h3 id="shingling">Shingling</h3>
+<video width="900" loop autoplay muted playsinline>
+<source src="shinglingprob.mp4" type="video/mp4">
+</video>
+<center>
+<em>Bimodal probability distribution predicted by DeepTrace in the presence of shingling</em>
+</center>
+<p>In seismic data with strong shingling, a unique first break event can be hard to identify. Rather than make an arbitrary choice between multiple potential candidates, DeepTrace’s predicted probability distribution automatically handles multimodal energy arrival.</p>
+<p>Using the probabilistic tomographic inversion in Phoenix, your picking and velocity models will automatically account for strong shingling and ambiguous arrivals.</p>
 <h2 id="information">Information</h2>
 <p>Read our case-study using Phoenix and DeepTrace to process a difficult survey produced in partnership with Fairfield here: <a href="FRGFairfield.pdf"> <img src="paperscreenshot.png" style="max-width: 33%"/></a></p>
 <p>We have also released results using Phoenix and DeepTrace to process a survey in partnership with Schlumberger. <a href="https://frontrangegeosciences.com/Phoenix/FRG_Phoenix_DeepTrace.pptx">Download the presentation here (27MB)</a>.</p>
