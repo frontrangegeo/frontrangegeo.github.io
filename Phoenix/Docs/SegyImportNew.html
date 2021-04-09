@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Phoenix Guide – SegyImportNew</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="importing-segy-data-updated-april-2021">Importing SEGY data (updated April 2021)</h1>
+<p><a href="index.html">Back To Table of Contents</a></p>
+<h2 id="introduction">Introduction</h2>
+<p><img src="Resources/SegyImport/phx-import-01mainwindow.png" /></p>
+<p>This is the Phoenix Main Window. All Merges (projects) are listed here. To open a Merge or an associated window (Picker, Delay Time Model, VNS Model, etc.), right-click on that row and select the desired window from the dropdown menu.</p>
+<h2 id="phoenixdata-setup">PhoenixData Setup</h2>
+<p>Before using Phoenix, users should set up their PhoenixData directory/directories. To do so, click the “PhoenixData paths” button on the top right of the Main Window.</p>
+<p>A new window will pop up:</p>
+<p><img src="Resources/SegyImport/phx-phoenixdatapaths.png" /></p>
+<p>Use this window to add or remove disk storage locations. Make sure there is sufficient disk space for projects and compressed seismic data.</p>
+<h2 id="importing-data">Importing Data</h2>
+<p>To import data and create a new merge, you must <a href="#segy-dictionary">define a SEG-Y dictionary</a>, then <a href="#import-wizard">launch the Import Wizard</a>.</p>
+<h2 id="segy-dictionary">SEGY Dictionary</h2>
+<p>To open the dictionary editor, click the “SEG-Y Viewer” button on the top right of the Main Window:</p>
+<p><img src="Resources/SegyImport/phx-import-02mainwindow-viewerbutton.png" /></p>
+<p>This will bring up the Dictionary Editor/SEG-Y Viewer window:</p>
+<p><img src="Resources/SegyImport/phx-import-03segyviewer-empty.png" /></p>
+<p>The SEG-Y Viewer is on the top half, and the Dictionary Editor is on the bottom half.</p>
+<p>To load a SEG-Y file, click the “Select SEG-Y file” button on the top right. To create a new dictionary, load and existing one, or save the current dictionary, click the appropriate button in the panel along the middle left.</p>
+<p>Edit the dictionary so that the header mappings are correct for the SEG-Y file, then save the dictionary. New rows may be added to the dictionary by clicking the plus sign button.</p>
+<p><img src="Resources/SegyImport/phx-import-04segyviewer-filled.png" /></p>
+<p>[b]Notes on SEG-Y Dictionaries:[/b]</p>
+<p>Shots and stations are uniquely identified by three numbers - LineNumber, PointNumber, and PointIndex. This follows the SPS standard, which can be found <a href="https://seg.org/Portals/0/SEG/News%20and%20Resources/Technical%20Standards/seg_sps_rev0.pdf">here</a>.</p>
+<p>The following information must be available in the SEGY trace headers:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Column</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shot</td>
+<td>LineNumber</td>
+<td>Optional, strongly recommended for 3D surveys</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>PointNumber</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>PointIndex</td>
+<td>Optional replant code - suggest using FFID for this field</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Easting</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>Northing</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Elevation</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>Depth</td>
+<td>Optional - required for dynamite data</td>
+</tr>
+<tr class="even">
+<td>Shot</td>
+<td>Uphole</td>
+<td>Optional - required for dynamite data</td>
+</tr>
+<tr class="odd">
+<td>Shot</td>
+<td>WaterDepth</td>
+<td>Optional - required for marine/OBC data</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>LineNumber</td>
+<td>Optional, strongly recommended for 3D surveys</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>PointNumber</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>PointIndex</td>
+<td>Optional replant code</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>Easting</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>Northing</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>Elevation</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Station</td>
+<td>Depth</td>
+<td>Optional- required for OBC</td>
+</tr>
+<tr class="odd">
+<td>Station</td>
+<td>WaterDepth</td>
+<td>Optional - required for marine/OBC data</td>
+</tr>
+<tr class="even">
+<td>Trace</td>
+<td>Pick_User</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<p>Additional user data may be imported into the shot and station databases (i.e. first break picks, statics, etc.).</p>
+<h2 id="import-wizard">Import Wizard</h2>
+<p>To launch the Import Wizard, click the “New merge” button, then select “Import SEGY data”. The other import options will be covered in other tutorials.</p>
+<p>[](Resources/SegyImport/phx-import-05newmergemenu.png</p>
+<p>This will bring up a window with the Import Wizard.</p>
+<h3 id="import-wizard-page-1-merge-name-bin-size-location-units">Import Wizard, Page 1: Merge name, Bin Size, Location, Units</h3>
+<p>[](Resources/SegyImport/phx-import-06importpg1.png</p>
+<p>Specify the project name for this Merge.</p>
+<p>The bin size is only used internally in Phoenix and does not need to have any relation to your processing grid.</p>
+<p>The location dropdown displays PhoenixData directories defined in the Main Window. Disk access speed should be prioritized for project data storage; the disk location selected here should be optimized for access speed in addition to possessing the necessary disk space to store the database tables for the project. SSD raid arrays are preferred. (Please note, this option selects the storage location for the Merge, which does not contain seismic data. Seismic data storage location will be selected on Page 3 of the Import Wizard).</p>
+<p>Select feet or meters for project units.</p>
+<h3 id="import-wizard-page-2-seg-y-and-dictionary-file">Import Wizard, Page 2: SEG-Y and Dictionary File</h3>
+<p>[](Resources/SegyImport/phx-import-07importpg2.png</p>
+<p>Click the folder icon to select a Dicitonary File (Header Map).</p>
+<p>Click the “Add” button to select SEG-Y files to add to the import. Click the “Clear” button to clear existing selected files.</p>
+<h3 id="import-wizard-page-3-dataset-generation-options-seismic-data-storage">Import Wizard, Page 3: Dataset Generation Options (Seismic Data storage)</h3>
+<p>[](Resources/SegyImport/phx-import-08importpg3.png</p>
+<p>Datasets are the means by which compressed seismic data are stored and organized. These Datasets contain the compressed data as well as indexing information so that the Merge (project) can access the data.</p>
+<p>Access is optimized by splitting the data for a project into multiple independent Datasets.</p>
+<p>Specify desired options for generating Datasets.</p>
+<p>Larger surveys should be split into a larger number of Datasets. For testing purposes, we split a 2.5 billion trace survey into 20 Datasets and a 4 billion trace survey into 80 Datasets.</p>
+<p>Set the maximum time and sample rate for the compressed seismic data.</p>
+<p>Verbose console print is useful for troubleshooting, checkpointing, and debugging purposes.</p>
+<p>An import log may be generated if desired.</p>
+<p>The multithreaded import is recommended if creating multiple Datasets (which is almost always the case).</p>
+<p>Select the desired location(s) for Dataset storage. Selected locations must have sufficient disk space to store all compressed seismic data for the survey. Disk access speed should be prioritized for seismic data storage if possible (given space requirements). SSD raid arrays are preferred. (Note: only select disk locations that have sufficient disk space to store seismic data. Do not select disks with insufficient space; this will break the import).</p>
+<h3 id="import-wizard-page-4-sparse-cmp-gather-generation-optional">Import Wizard Page 4: Sparse CMP Gather Generation (optional)</h3>
+<p>[](Resources/SegyImport/phx-import-09importpg4.png</p>
+<p>If you are using Sparse CMPs, select the check box and specify desired options for CMP spacing, offset limits, etc.</p>
+<p>Once you are done, click “Finish”.</p>
+<h3 id="main-window-import-job-status">Main Window: Import Job Status</h3>
+<p>When the Import Job launches, it will appear in the bottom half of the Phoenix Main Window:</p>
+<p>[](Resources/SegyImport/phx-import-10mainwindowrunning.png</p>
+<h3 id="import-job-complete">Import Job Complete</h3>
+<p>Once the Import Job is finished, the program will automatically open the Merge Manager Window:</p>
+<p>[](Resources/SegyImport/phx-import-11importcomplete.png</p>
+</body>
+</html>
