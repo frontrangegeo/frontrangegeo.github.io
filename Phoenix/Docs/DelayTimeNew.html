@@ -68,14 +68,9 @@
 <p>Clicking the “Apply options” button will update the basemap, angle, and the inline and crossline node count in the “Model description” section.</p>
 <p>Click the “OK” button to create the new Model.</p>
 <p>Once the Model has been created, it will appear under the dropdown menu when you click the “DT” button on the Navigation Bar of the Merge Manager window:</p>
-<figure>
-<img src="Resources/DelayTime/phx-dt-03.png" alt="" /><figcaption>TODO</figcaption>
-</figure>
 <h2 id="opening-a-model">Opening a Model</h2>
 <p>To open an exiting Model from the Merge Manager window, click the “DT” button on the Navigation Bar, then select the model:</p>
-<figure>
-<img src="Resources/DelayTime/phx-dt-04openmodel.png" alt="" /><figcaption>TODO</figcaption>
-</figure>
+<p><img src="Resources/DelayTime/phx-dt-03openmodel.png" /></p>
 <p>The Delay Time Model window will appear. A popup suggestion box may appear; you may follow these suggestions or disable them if you wish.</p>
 <p><img src="Resources/DelayTime/phx-dt-05dtmodelsuggestionbox.png" /></p>
 <h2 id="branch-assignment">Branch Assignment</h2>
@@ -112,15 +107,24 @@
 <h2 id="running-delay-time-analysis">Running Delay Time Analysis</h2>
 <p>This requires that you have Branches assigned as well as valid picks for those branches. If you are missing either of these, make sure you have them before proceeding.</p>
 <p>To run Delay Time Analysis, either use the popup suggestion window, or click the “Analysis” button in the upper left and select one of the Delay Time Analysis options.</p>
-<p>There are two options for Delay Time Analysis - grid-based and non-grid-based.</p>
+<p>There are two options for Delay Time Analysis - grid-based and non-grid-based. Please note - all default options in the Delay Time Analysis dialogs are the recommended options.</p>
 <h3 id="gridded-delay-time-analysis">Gridded Delay Time Analysis</h3>
-<p>This uses a regular grid rather than simply using the Shot and Station locations. This method should be used when anisotropy is suspected in the survey.</p>
+<p>This uses a regular grid rather than simply using the Shot and Station locations. This method produces more accurate results and should be used when anisotropy is suspected in the survey.</p>
 <p>When this method is selected, the following dialog will appear:</p>
 <p><img src="Resources/DelayTime/phx-dt-13dtagridded.png" /></p>
+<p>Phoenix defines the Delay Time Analysis smoothing radius as a percentage of the max branch offset - this creates more physical results. The default value for gridded analysis is 30%, as opposed to the default of 100% for the non-gridded version - this is because the gridded version results in a higher-resolution model, and thus should be smoothed less in order to preserve the finer details.</p>
+<p>Please remember to change your water velocity if using meters.</p>
+<p>You may exclude Branch locations for being too far away from a Shot or Station.</p>
+<p>Velocity dynamic range compression keeps refractor velocities realistic and physical, and prevents massive jumps in velocity that sometimes occur in Delay Time Analysis. The default for gridded analysis is to use nonlinear compression.</p>
 <h3 id="non-gridded-delay-time-analysis">Non-Gridded Delay Time Analysis</h3>
 <p>This is a more traditional Delay Time update.</p>
 <p>When this method is selected, the following dialog will appear:</p>
 <p><img src="Resources/DelayTime/phx-dt-14dtanongridded.png" /></p>
+<p>This is a faster update that uses the Shot and Station locations rather than a regular grid.</p>
+<p>Phoenix defines the Delay Time Analysis smoothing radius as a percentage of the max branch offset - this creates more physical results. The default value for nongridded analysis is 100%.</p>
+<p>Please remember to change your water velocity if using meters.</p>
+<p>You may exclude Branch locations for being too far away from a Shot or Station.</p>
+<p>Velocity dynamic range compression keeps refractor velocities realistic and physical, and prevents massive jumps in velocity that sometimes occur in Delay Time Analysis. The default for nongridded analysis is to use linear compression.</p>
 <h3 id="delay-time-job-monitor">Delay Time Job Monitor</h3>
 <p>After the Delay Time job is launched, it will appear in the Job Monitor portion of the Phoenix Main Window:</p>
 <p><img src="Resources/DelayTime/phx-dt-15dtajobmonitor.png" /></p>
