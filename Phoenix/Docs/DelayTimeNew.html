@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Phoenix Guide – DelayTimeNew</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="delay-time-analysis">Delay Time Analysis</h1>
+<p><a href="index.html">Back To Table of Contents</a></p>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#creating-new-model">Creating New Model</a></li>
+<li><a href="#branch-assignment">Branch Assignment</a>
+<ul>
+<li><a href="#axis-locks">Axis Locks</a></li>
+<li><a href="#linear-moveout">Linear Moveout</a></li>
+<li><a href="#branch-hotkeys">Branch Hotkeys</a></li>
+<li><a href="#assigning-a-branch">Assigning a Branch</a></li>
+</ul></li>
+<li><a href="#after-branch-assignment">After Branch Assignment</a></li>
+<li><a href="#running-delay-time-analysis">Running Delay Time Analysis</a>
+<ul>
+<li><a href="#gridded-delay-time-analysis">Gridded Delay Time Analysis</a></li>
+<li><a href="#nongridded-delay-time-analysis">Non-Gridded Delay Time Analysis</a></li>
+<li><a href="#delay-time-job-monitor">Delay Time Job Monitor</a></li>
+</ul></li>
+<li><a href="#delay-time-model-building">Delay Time Model Building</a>
+<ul>
+<li><a href="#compute-model-using-weathering-velocity">Compute Model Using Weathering Velocity</a></li>
+<li><a href="#compute-model-using-refractor-surface">Compute Model Using Refractor Surface</a></li>
+</ul></li>
+<li><a href="#delay-time-model-history">Delay Time Model History</a></li>
+<li><a href="#delay-time-stacks">Delay Time Stacks</a></li>
+<li><a href="#model-profile-view">Model Profile View</a></li>
+<li><a href="#statics">Statics</a>
+<ul>
+<li><a href="#set-intermediate-datum">Set Intermediate Datum</a></li>
+<li><a href="#set-final-datum">Set Final Datum</a></li>
+<li><a href="#computing-statics">Computing Statics</a></li>
+<li><a href="#exporting-statics">Exporting Statics</a></li>
+</ul></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Each Delay Time solution is saved in its own Model. You may have any number of Delay Time Models in your Merge.</p>
+<p>To create a Delay Time Model, first open the Merge Manager for your project:</p>
+<p><img src="Resources/DelayTime/phx-dt-01mergemanager.png" /></p>
+<h2 id="creating-new-model">Creating New Model</h2>
+<p>Click the “DT” button on the Navigation Bar along the top of the Merge Manager Window, and select “Create new delay time solution model”. A dialog will appear. You may need to resize it if the text columns are not fully visible on your desktop resolution.</p>
+<p><img src="Resources/DelayTime/phx-dt-02newmodel.png" /></p>
+<p>Provide a name for the Model. In general, we recommend that Model names be descriptive of grid parameters.</p>
+<p>The angle may be set by clicking and dragging a line in the basemap portion on the right-hand side.</p>
+<p>Set desired horizontal grid spacing. This spacing is used for interpolation functions within Delay Time Analysis.</p>
+<p>Set water velocity. Note - the default is set for feet. If you are using meters, make sure to change this value or your water velocity will be far too fast.</p>
+<p>Clicking the “Apply options” button will update the basemap, angle, and the inline and crossline node count in the “Model description” section.</p>
+<p>Click the “OK” button to create the new Model.</p>
+<p>Once the Model has been created, it will appear under the dropdown menu when you click the “DT” button on the Navigation Bar of the Merge Manager window:</p>
+<figure>
+<img src="Resources/DelayTime/phx-dt-03.png" alt="" /><figcaption>TODO</figcaption>
+</figure>
+<h2 id="opening-a-model">Opening a Model</h2>
+<p>To open an exiting Model from the Merge Manager window, click the “DT” button on the Navigation Bar, then select the model:</p>
+<figure>
+<img src="Resources/DelayTime/phx-dt-04openmodel.png" alt="" /><figcaption>TODO</figcaption>
+</figure>
+<p>The Delay Time Model window will appear. A popup suggestion box may appear; you may follow these suggestions or disable them if you wish.</p>
+<p><img src="Resources/DelayTime/phx-dt-05dtmodelsuggestionbox.png" /></p>
+<h2 id="branch-assignment">Branch Assignment</h2>
+<p>To open the Branch Assignment dialog, either click the button in the suggestion box or click the “Branch” button in the top left corner of the Delay Time Model window, and select the first option from the dropdown:</p>
+<p><img src="Resources/DelayTime/phx-dt-06dtmodelbranchmenu.png" /></p>
+<p>The Branch Assignment dialog will appear. Click a location on the basemap in the lower left to bring up a gather (note that the default selection is a shot gather):</p>
+<p><img src="Resources/DelayTime/phx-dt-07branchassignmentpicks.png" /></p>
+<p>If you wish to view traces with picks overlaid in this window, check the “Show seismic data, if available” box in the top left corner. This is also necessary if you do not yet have picks.</p>
+<p><img src="Resources/DelayTime/phx-dt-08branchassignmenttraces.png" /></p>
+<h3 id="axis-locks">Axis Locks</h3>
+<p>The axis locks may be used to lock the display window to a more useful range. The “X range” locks the offset axis and the “Y range” locks the time axis. This should be used in conjunction with a linear moveout to focus the image.</p>
+<h3 id="linear-moveout">Linear Moveout</h3>
+<p>This option applies a linear moveout to the picks/seismic. We highly recommend that you use this. The refractor velocity of each Branch can be approximated by shifting the moveout velocity until the Branch picks are horizontal on the display - the moveout velocity that does this is the approximate refractor velocity of that branch.</p>
+<h3 id="additional-branch-assignment-options">Additional Branch Assignment Options</h3>
+<p>The “Minimum location separation” value sets the minimum spacing between Branch Assignment locations on the basemap.</p>
+<p>To delete a defined location, mouse over the location on the basemap and press the “D” key.</p>
+<p>The interpolation scalar should be treated like a smoothing radius - a larger value will cause effects to be smeared out more.</p>
+<p>You may choose between inverse square and inverse fourth weighting - inverse square is slightly faster but inverse fourth is slightly more accurate.</p>
+<p>Any pick version may be displayed in this window, and used for defining Branches.</p>
+<p>Delay times may be applied to the data. This should not be used when defining Branches for the first time.</p>
+<h3 id="branch-hotkeys">Branch Hotkeys</h3>
+<p>To switch between Branches, use the number keys on your keyboard (i.e. the “1” key for Branch 1, the “2” key for Branch 2, etc.). The currently selected branch is displayed above the trace/pick display.</p>
+<h3 id="assigning-a-branch">Assigning a Branch</h3>
+<p>To assign the currently selected Branch at the currently selected location, click and drag the mouse cursor along the picks or traces in the display. Assign all desired branches at this location, then repeat at other locations.</p>
+<p><img src="Resources/DelayTime/phx-dt-09branchlines.png" /></p>
+<p>Once you have assigned all Branches at all desired locations, click the “OK” button to save the Branch Assignment. A suggestion box may appear asking to interpolate delay times and velocities to Shot/Station locations - this must be done before any other steps.</p>
+<p><img src="Resources/DelayTime/phx-dt-10interpolatesuggestion.png" /></p>
+<p>This interpolation option is also accessible from the Delay Time Model Window by clicking the “Branch” button in the upper left and selecting “Copy branch velocities and delay times to shot/stations”:</p>
+<p><img src="Resources/DelayTime/phx-dt-11copybranchtotables.png" /></p>
+<h2 id="after-branch-assignment">After Branch Assignment</h2>
+<p>If you have picks already, you can run Delay Time Analysis. If you do not have picks, you can use the Delay Time Stacks to flatten your trace gathers and create autopicks.</p>
+<p>A suggestion box may appear for Delay Time Analysis if requirements are met:</p>
+<p><img src="Resources/DelayTime/phx-dt-12dtasuggestion.png" /></p>
+<h2 id="running-delay-time-analysis">Running Delay Time Analysis</h2>
+<p>This requires that you have Branches assigned as well as valid picks for those branches. If you are missing either of these, make sure you have them before proceeding.</p>
+<p>To run Delay Time Analysis, either use the popup suggestion window, or click the “Analysis” button in the upper left and select one of the Delay Time Analysis options.</p>
+<p>There are two options for Delay Time Analysis - grid-based and non-grid-based.</p>
+<h3 id="gridded-delay-time-analysis">Gridded Delay Time Analysis</h3>
+<p>This uses a regular grid rather than simply using the Shot and Station locations. This method should be used when anisotropy is suspected in the survey.</p>
+<p>When this method is selected, the following dialog will appear:</p>
+<p><img src="Resources/DelayTime/phx-dt-13dtagridded.png" /></p>
+<h3 id="non-gridded-delay-time-analysis">Non-Gridded Delay Time Analysis</h3>
+<p>This is a more traditional Delay Time update.</p>
+<p>When this method is selected, the following dialog will appear:</p>
+<p><img src="Resources/DelayTime/phx-dt-14dtanongridded.png" /></p>
+<h3 id="delay-time-job-monitor">Delay Time Job Monitor</h3>
+<p>After the Delay Time job is launched, it will appear in the Job Monitor portion of the Phoenix Main Window:</p>
+<p><img src="Resources/DelayTime/phx-dt-15dtajobmonitor.png" /></p>
+<p>The status will update to “Finished” when the job is complete.</p>
+<h2 id="delay-time-model-building">Delay Time Model Building</h2>
+<p>Once the Delay Time job is finished, a suggestion box may appear, asking you to compute the model.</p>
+<p><img src="Resources/DelayTime/phx-dt-16computemodelsuggestion.png" /></p>
+<p>To compute a model, you may either select one of the options in this suggestion box, or from the Delay Time Window, you may click the “Model” button and select one of the model computation options there.</p>
+<h3 id="compute-model-using-weathering-velocity">Compute Model Using Weathering Velocity</h3>
+<p>To use this option, specify the weathering velocity in the dialog:</p>
+<p><img src="Resources/DelayTime/phx-dt-17modelweatheringvelocity.png" /></p>
+<h3 id="compute-model-using-refractor-surface">Compute Model Using Refractor Surface</h3>
+<p>To use this option, set the desired average depth and smoothing radius for the Refractor, as well as the weathering velocity span. These last two percentages control the allowed range for the weathering velocity.</p>
+<p><img src="Resources/DelayTime/phx-dt-18modelrefractorsurface.png" /></p>
+<h2 id="delay-time-model-history">Delay Time Model History</h2>
+<p>The Delay Time Model tracks its update history in the bottom left corner of the window:</p>
+<p><img src="Resources/DelayTime/phx-dt-19modelhistory.png" /></p>
+<h2 id="delay-time-stacks">Delay Time Stacks</h2>
+<p>To create, view, and pick Delay Time Stacks, click on the “Shot/station stacks” tab in the Delay Time Window:</p>
+<p><img src="Resources/DelayTime/phx-dt-20stackwindow.png" /></p>
+<p>Phoenix allows you to have any number of different Stacks for each Model. These appear in the dropdown menu. To create a new Stack, click the “New stack” button. A dialog will appear:</p>
+<p><img src="Resources/DelayTime/phx-dt-21newstacks.png" /></p>
+<p>Name the Stacks, and set the time window. Larger surveys will benefit from using multiple threads per dataset. Please note, the Delay Time solution shifts will be added automatically - only signal processing objects should be added to the flow, as in the example. Click “OK” to create the Stacks.</p>
+<p>The Stack creation job will also appear in the Phoenix Main Window Job Monitor:</p>
+<p><img src="Resources/DelayTime/phx-dt-22stackjobmonitor.png" /></p>
+<p>Once Stack creation is complete, the Stack Window should automatically reload. The Stacks may then be picked.</p>
+<p><img src="Resources/DelayTime/phx-dt-23stackpicking.png" /></p>
+<p>Set the grouping method - this usually means grouping by count for Shots and grouping by line number for Stations.</p>
+<p>Once the stack picks have been made, the “Pick status” bar will reflect that picks have been modified - they must be saved manually. Click the “Save picks” button to do this.</p>
+<p>To re-stack, simply create a new Stack. As long as the picks have been saved, the Delay Time solution will have been updated, and these changes will be in the new Stack.</p>
+<h2 id="model-profile-view">Model Profile View</h2>
+<p>To view Delay Time Model Profiles, click on the “Profiles” tab in the Delay Time Model Window:</p>
+<p><img src="Resources/DelayTime/phx-dt-24modelprofile.png" /></p>
+<h2 id="statics">Statics</h2>
+<p>Before computing Statics, the intermediate and final datums must be set.</p>
+<p>Click the “Statics” near the top middle of the Delay Time Model Window to set datums and compute statics.</p>
+<h3 id="set-intermediate-datum">Set Intermediate Datum</h3>
+<p>[]Resources/DelayTime/phx-dt-25intermediatedatummenu.png)</p>
+<p>There are 3 options for setting the intermediate datum: flat, database column, and import from other project.</p>
+<p>To set a flat datum, specify the elevation of the intermediate datum. This should be just below the bottom of the lowest refractor.</p>
+<p><img src="Resources/DelayTime/phx-dt-26intermediatedatumconstant.png" /></p>
+<p>To set a datum based on a database column (such as a Refractor surface), select the column, set the smoothing radius, and set the vertical shift. To use a Refractor surface, use the corresponding “Elevation_#” column, where # is the Refractor number.</p>
+<p><img src="Resources/DelayTime/phx-dt-27intermediatedatumrefractorsurface.png" /></p>
+<p>To set a datum using another project, select the project, Delay Time Model, and database column.</p>
+<h3 id="set-final-datum">Set Final Datum</h3>
+<p><img src="Resources/DelayTime/phx-dt-28finaldatummenu.png" /></p>
+<p>The options for setting the final datum are the same as those above for the intermediate datum.</p>
+<h3 id="computing-statics">Computing Statics</h3>
+<p>Select “Compute statics” from the Statics menu. A dialog will appear:</p>
+<p><img src="Resources/DelayTime/phx-dt-29computestatics.png" /></p>
+<p>Name the Statics, set the Replacement Velocity, then set Statics Tie options, if desired. Statics Tie will shift these Statics such that the mean value is equal to the mean value of the reference Statics.</p>
+<h3 id="exporting-statics">Exporting Statics</h3>
+<p>Phoenix exports all Statics at once. Simply select “Export statics” from the Statics menu and the program will provide the export location:</p>
+<p><img src="Resources/DelayTime/phx-dt-30exportstatics.png" /></p>
+</body>
+</html>
