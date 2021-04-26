@@ -12,7 +12,7 @@ header-includes:
 ---
 <div style="vertical-align: bottom;padding: 0px; margin: 0px;text-align: center; height: 3em;line-height: 3em; width: 100%;display: inline-block">
 <img src="../FRGLogo.png" style="position: absolute; left: 25%; top: 0px; max-height: 3em;"/>
-[Home](https://frontrangegeosciences.com/) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [Company](https://frontrangegeosciences.com/About)</div>
+[Home](https://frontrangegeosciences.com/) | [Phoenix](https://frontrangegeosciences.com/Phoenix) | [DeepTrace](https://frontrangegeosciences.com/DeepTrace) | [Company](https://frontrangegeosciences.com/About)</div>
 
 <hr style="margin-top: 0px;"/>
 
